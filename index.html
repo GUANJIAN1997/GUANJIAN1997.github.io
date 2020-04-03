@@ -92,13 +92,13 @@
       
         <h2 id="一-引言"><a href="#一-引言" class="headerlink" title="一 引言"></a>一 引言</h2><p>刚学到浮动的时候感觉这功能对于布局来说简直是神器啊，但自己试了几个例子之后变得一头雾水，刚入门前端的小伙伴们是否跟我一样呢，这次就通过几个例子来通俗说说浮动。</p>
 <h2 id="二-结合例子的说明"><a href="#二-结合例子的说明" class="headerlink" title="二 结合例子的说明"></a>二 结合例子的说明</h2><p>首先简单介绍一下CSS的浮动（float）：Float（浮动），会使元素（盒子）向左或向右移动，其周围的元素也会重新排列。<br>| 值        |  功能 |<br>| :——–:   | :——————–:  |<br>| none      |  默认值。元素不浮动。  |<br>| left       |   元素向左浮动。    |<br>| right  |    元素向右浮动。   |<br>| inherit  | 从父元素继承float属性的值 |</p>
-<h2 id="nbsp"><a href="#nbsp" class="headerlink" title="&nbsp;"></a>&nbsp;</h2><p>首先要知道html的标准流是从上倒下按顺序排列的。div是块元素，如果不加浮动的话一个div应该占一整行，自上而下排列。<br>浮动就是为了打破这个html标准流，让一行能显示多个div元素。<br><strong>下面我们来看第一个例子</strong><br><img src="/images/4.1.png" alt=""><br>我们可看到在不加浮动的时候div1~div4是从上到下依次排列的。<br>###HTML代码</p>
+<h2 id="nbsp"><a href="#nbsp" class="headerlink" title="&nbsp;"></a>&nbsp;</h2><p>首先要知道html的标准流是从上倒下按顺序排列的。div是块元素，如果不加浮动的话一个div应该占一整行，自上而下排列。<br>浮动就是为了打破这个html标准流，让一行能显示多个div元素。<br><strong>下面我们来看第一个例子</strong><br><img src="/images/4.1.png" width = "300" height = "200" alt="例1（不加浮动）" align=center /><br>我们可看到在不加浮动的时候div1~div4是从上到下依次排列的。<br>###HTML代码</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>float_test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">		<span class="selector-class">.div1</span>&#123;<span class="attribute">width</span>: <span class="number">100px</span>;<span class="attribute">height</span>: <span class="number">100px</span>;<span class="attribute">background-color</span>: red;&#125;</span></span><br><span class="line"><span class="css">		<span class="selector-class">.div2</span>&#123;<span class="attribute">width</span>: <span class="number">200px</span>;<span class="attribute">height</span>: <span class="number">50px</span>;<span class="attribute">background-color</span>: yellow;&#125;</span></span><br><span class="line"><span class="css">		<span class="selector-class">.div3</span>&#123;<span class="attribute">width</span>: <span class="number">100px</span>;<span class="attribute">height</span>: <span class="number">150px</span>;<span class="attribute">background-color</span>: black;&#125;</span></span><br><span class="line"><span class="css">		<span class="selector-class">.div4</span>&#123;<span class="attribute">width</span>: <span class="number">150px</span>;<span class="attribute">height</span>: <span class="number">50px</span>;<span class="attribute">background-color</span>: green;&#125;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div1"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>div1<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div2"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>div2<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div3"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"color: white"</span>&gt;</span>div3<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div4"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>div4<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/03/4/" data-id="ck8k7pivf0000smnd0htce2nu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/03/4/" data-id="ck8k9i4r30006wdnd8jru4avy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
@@ -137,20 +137,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="一-引言"><a href="#一-引言" class="headerlink" title="一 引言"></a>一 引言</h2><p>引入链接和css文件的时候会用href属性，引入图片和js文件的时候却用src属性，同样是加载外部文件这两个属性到底有什么区别呢？</p>
-<h2 id="二-概念"><a href="#二-概念" class="headerlink" title="二 概念"></a>二 概念</h2><p>href (Hypertext Reference): 译为超文本引用。href是指向网络资源的所在位置，建立起来和当前文档的链接。</p>
-<blockquote>
-<p>例如:<link href="xxx.css" rel="stylesheet"/>当浏览器解析到这一句话的时候会识别文档为css文件，<strong>会下载且不会中断对当前页面的处理</strong>。   </p>
-</blockquote>
-<p>src(source）: src是指向外部资源的位置并且将指向的资源加载并应用到当前的文档中。</p>
-<blockquote>
-<p>例如:<script src="xxx.js"></script>当浏览器解析到这一句话的时候会暂停对当前页面的处理，直到将次资源加载，编译完成。所以js文件一般都放在<body>的最后。</p>
-</blockquote>
+<h2 id="二-概念"><a href="#二-概念" class="headerlink" title="二 概念"></a>二 概念</h2><p>href (Hypertext Reference): 译为超文本引用。href是指向网络资源的所在位置，建立起来和当前文档的链接。<br>例如:<span><link href="xxx.css" rel="stylesheet"/></span>当浏览器解析到这一句话的时候会识别文档为css文件，<strong>会下载且不会中断对当前页面的处理</strong>。  </p>
+<p>src(source）: src是指向外部资源的位置并且将指向的资源加载并应用到当前的文档中。<br>例如:<span><script src="xxx.js"></script></span>当浏览器解析到这一句话的时候会暂停对当前页面的处理，直到将次资源加载，编译完成。所以js文件一般都放在<body>的最后。</p>
 <h2 id="三-总结"><a href="#三-总结" class="headerlink" title="三 总结"></a>三 总结</h2><p>href用于建立标签和外部资源之间建立一个关系，src可替代这个元素。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/01/3/" data-id="ck8k7mbna0001r4ndaxz11dna" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/01/3/" data-id="ck8k9i4qs0000wdndfsyf42mw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
@@ -223,7 +217,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/31/2/" data-id="ck8k7mbnb0002r4ndabm90xen" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/31/2/" data-id="ck8k9i4r10004wdnd4nb7fkf4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
@@ -268,7 +262,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/30/1/" data-id="ck8k7mbnp000br4nd250s99ss" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/30/1/" data-id="ck8k9i4r20005wdndc9s1apfs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%AF%95%E8%AF%95/" rel="tag">第一次试试</a></li></ul>
@@ -319,7 +313,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/29/hello-world/" data-id="ck8k7mbn50000r4ndakgf7mg1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/29/hello-world/" data-id="ck8k9i4qy0001wdndge9308le" class="article-share-link">Share</a>
       
       
     </footer>
