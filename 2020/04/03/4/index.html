@@ -5,15 +5,22 @@
   
 
   
-  <title>关健的博客</title>
+  <title>通过实际例子通俗说明css浮动 | 关健的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="关健的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="一 引言刚学到浮动的时候感觉这功能对于布局来说简直是神器啊，但自己试了几个例子之后变得一头雾水，刚入门前端的小伙伴们是否跟我一样呢，这次就通过几个例子来通俗说说浮动。 二 结合例子的说明首先简单介绍一下CSS的浮动（float）：Float（浮动），会使元素（盒子）向左或向右移动，其周围的元素也会重新排列。| 值        |  功能 || :——–:   | :——————–:  || no">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过实际例子通俗说明css浮动">
+<meta property="og:url" content="http://yoursite.com/2020/04/03/4/index.html">
 <meta property="og:site_name" content="关健的博客">
+<meta property="og:description" content="一 引言刚学到浮动的时候感觉这功能对于布局来说简直是神器啊，但自己试了几个例子之后变得一头雾水，刚入门前端的小伙伴们是否跟我一样呢，这次就通过几个例子来通俗说说浮动。 二 结合例子的说明首先简单介绍一下CSS的浮动（float）：Float（浮动），会使元素（盒子）向左或向右移动，其周围的元素也会重新排列。| 值        |  功能 || :——–:   | :——————–:  || no">
 <meta property="og:locale" content="zh">
+<meta property="og:image" content="http://yoursite.com/images/4.1.png">
+<meta property="article:published_time" content="2020-04-03T08:38:16.000Z">
+<meta property="article:modified_time" content="2020-04-03T13:16:43.226Z">
 <meta property="article:author" content="关健">
+<meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/4.1.png">
   
     <link rel="alternate" href="/atom.xml" title="关健的博客" type="application/atom+xml">
   
@@ -62,9 +69,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-4" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-4" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/04/03/4/" class="article-date">
   <time datetime="2020-04-03T08:38:16.000Z" itemprop="datePublished">2020-04-03</time>
@@ -81,8 +86,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/03/4/">通过实际例子通俗说明css浮动</a>
+    <h1 class="article-title" itemprop="name">
+      通过实际例子通俗说明css浮动
     </h1>
   
 
@@ -106,230 +111,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-3" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/04/01/3/" class="article-date">
-  <time datetime="2020-04-01T13:42:47.000Z" itemprop="datePublished">2020-04-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/01/3/">src和href的区别</a>
-    </h1>
+    <a href="/2020/04/01/3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">src和href的区别</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一-引言"><a href="#一-引言" class="headerlink" title="一 引言"></a>一 引言</h2><p>引入链接和css文件的时候会用href属性，引入图片和js文件的时候却用src属性，同样是加载外部文件这两个属性到底有什么区别呢？</p>
-<h2 id="二-概念"><a href="#二-概念" class="headerlink" title="二 概念"></a>二 概念</h2><p>href (Hypertext Reference): 译为超文本引用。href是指向网络资源的所在位置，建立起来和当前文档的链接。</p>
-<blockquote>
-<p>例如:<link href="xxx.css" rel="stylesheet"/>当浏览器解析到这一句话的时候会识别文档为css文件，<strong>会下载且不会中断对当前页面的处理</strong>。   </p>
-</blockquote>
-<p>src(source）: src是指向外部资源的位置并且将指向的资源加载并应用到当前的文档中。</p>
-<blockquote>
-<p>例如:<script src="xxx.js"></script>当浏览器解析到这一句话的时候会暂停对当前页面的处理，直到将次资源加载，编译完成。所以js文件一般都放在<body>的最后。</p>
-</blockquote>
-<h2 id="三-总结"><a href="#三-总结" class="headerlink" title="三 总结"></a>三 总结</h2><p>href用于建立标签和外部资源之间建立一个关系，src可替代这个元素。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/01/3/" data-id="ck8k7mbna0001r4ndaxz11dna" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/03/31/2/" class="article-date">
-  <time datetime="2020-03-31T13:05:20.000Z" itemprop="datePublished">2020-03-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/31/2/">LocalStorage,SessionStorage,Cookie的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一-引言"><a href="#一-引言" class="headerlink" title="一 引言"></a>一 引言</h2><p><a href="https://zh.wikipedia.org/wiki/HTML5" target="_blank" rel="noopener" title="HTML5">HTML5</a>加入了新的web存储的技术LocalStorage，那么LocalStorage,SessionStorage和Cookie到底有什么区别呢？</p>
-<h2 id="二-概念"><a href="#二-概念" class="headerlink" title="二 概念"></a>二 概念</h2><h3 id="LocalStorage和SessionStorage"><a href="#LocalStorage和SessionStorage" class="headerlink" title="LocalStorage和SessionStorage"></a>LocalStorage和SessionStorage</h3><p>LocalStorage和SessionStorage一样都是用来存储客户端临时信息的对象。<br>LocalStorage：解决了cookie存储空间的不足的问题（每条cookie的存储空间为4K）。并且LocalStorage有永久的生命周期。<br>SessionStorage：顾名思义它是一个会话存储对象，用于临时保存同一标签页的数据，在关闭标签页之后将会删除这些数据。</p>
-<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>Cookis直译过来就是“小型文本文件”的意思。<br>在计算机术语中，Cookis是指某些网站为了辨别用户身份而储存在用户本地终端（Client Side）上的数据。</p>
-<h2 id="三-LocalStorage-SessionStorage-Cookie之间的对比"><a href="#三-LocalStorage-SessionStorage-Cookie之间的对比" class="headerlink" title="三 LocalStorage,SessionStorage,Cookie之间的对比"></a>三 LocalStorage,SessionStorage,Cookie之间的对比</h2><table>
-<thead>
-<tr>
-<th align="center">特性</th>
-<th align="center">LocalStorage</th>
-<th align="center">SessionStorage</th>
-<th align="center">Cookie</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">生命周期</td>
-<td align="center">永久，可以手动清除</td>
-<td align="center">仅在当前会话下有效，关闭页面或者浏览器会后被清除</td>
-<td align="center">一般由服务器生成，可设置失效时间。如果在浏览器端生成Cookie，默认是关闭浏览器后失效</td>
-</tr>
-<tr>
-<td align="center">数据大小</td>
-<td align="center">一般为5MB</td>
-<td align="center">一般为5MB</td>
-<td align="center">4K左右</td>
-</tr>
-<tr>
-<td align="center">与服务端连接与否</td>
-<td align="center">仅在浏览器保存，不参与和服务器的通信</td>
-<td align="center">仅在浏览器保存，不参与和服务器的通信</td>
-<td align="center">每次都会携带在HTTP头中，参与和服务器的通信</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/31/2/" data-id="ck8k7mbnb0002r4ndabm90xen" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/03/30/1/" class="article-date">
-  <time datetime="2020-03-30T01:51:20.000Z" itemprop="datePublished">2020-03-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/30/1/">开始写博客</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>为了做技术沉淀想要把我学习前端的一些笔记写到博客上，之后在做前端遇到的问题也会在博客上更新。一起努力学好前端吧！</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/30/1/" data-id="ck8k7mbnp000br4nd250s99ss" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%AF%95%E8%AF%95/" rel="tag">第一次试试</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/03/29/hello-world/" class="article-date">
-  <time datetime="2020-03-29T07:27:51.347Z" itemprop="datePublished">2020-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/29/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/29/hello-world/" data-id="ck8k7mbn50000r4ndakgf7mg1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
