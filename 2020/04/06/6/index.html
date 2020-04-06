@@ -5,20 +5,22 @@
   
 
   
-  <title>LocalStorage,SessionStorage,Cookie的区别 | 关健的博客</title>
+  <title>CSS position定位 | 关健的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一 引言HTML5加入了新的web存储的技术LocalStorage，那么LocalStorage,SessionStorage和Cookie到底有什么区别呢？ 二 概念LocalStorage和SessionStorageLocalStorage和SessionStorage一样都是用来存储客户端临时信息的对象。LocalStorage：解决了cookie存储空间的不足的问题（每条cookie的">
+  <meta name="description" content="position属性指定了元素的定位类型position属性有五个值static,relative,fixed,absolute,sticky,本文将通过具体例子来说明其作用。1.staticstatic是默认值，表示不会被定位（top,right,bottom,left属性都不起作用）例：从上面的例可以看出，如果设置position的值为static，left等属性不会改变元素位置（默认posi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LocalStorage,SessionStorage,Cookie的区别">
-<meta property="og:url" content="http://yoursite.com/2020/03/31/2/index.html">
+<meta property="og:title" content="CSS position定位">
+<meta property="og:url" content="http://yoursite.com/2020/04/06/6/index.html">
 <meta property="og:site_name" content="关健的博客">
-<meta property="og:description" content="一 引言HTML5加入了新的web存储的技术LocalStorage，那么LocalStorage,SessionStorage和Cookie到底有什么区别呢？ 二 概念LocalStorage和SessionStorageLocalStorage和SessionStorage一样都是用来存储客户端临时信息的对象。LocalStorage：解决了cookie存储空间的不足的问题（每条cookie的">
+<meta property="og:description" content="position属性指定了元素的定位类型position属性有五个值static,relative,fixed,absolute,sticky,本文将通过具体例子来说明其作用。1.staticstatic是默认值，表示不会被定位（top,right,bottom,left属性都不起作用）例：从上面的例可以看出，如果设置position的值为static，left等属性不会改变元素位置（默认posi">
 <meta property="og:locale" content="zh">
-<meta property="article:published_time" content="2020-03-31T13:05:20.000Z">
-<meta property="article:modified_time" content="2020-04-01T13:44:06.606Z">
+<meta property="og:image" content="http://yoursite.com/images/6.1.png">
+<meta property="article:published_time" content="2020-04-06T09:40:23.000Z">
+<meta property="article:modified_time" content="2020-04-06T14:05:19.195Z">
 <meta property="article:author" content="关健">
-<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/6.1.png">
   
     <link rel="alternate" href="/atom.xml" title="关健的博客" type="application/atom+xml">
   
@@ -67,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-2" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-6" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/03/31/2/" class="article-date">
-  <time datetime="2020-03-31T13:05:20.000Z" itemprop="datePublished">2020-03-31</time>
+    <a href="/2020/04/06/6/" class="article-date">
+  <time datetime="2020-04-06T09:40:23.000Z" itemprop="datePublished">2020-04-06</time>
 </a>
     
   <div class="article-category">
@@ -85,7 +87,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      LocalStorage,SessionStorage,Cookie的区别
+      CSS position定位
     </h1>
   
 
@@ -93,45 +95,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一-引言"><a href="#一-引言" class="headerlink" title="一 引言"></a>一 引言</h2><p><a href="https://zh.wikipedia.org/wiki/HTML5" target="_blank" rel="noopener" title="HTML5">HTML5</a>加入了新的web存储的技术LocalStorage，那么LocalStorage,SessionStorage和Cookie到底有什么区别呢？</p>
-<h2 id="二-概念"><a href="#二-概念" class="headerlink" title="二 概念"></a>二 概念</h2><h3 id="LocalStorage和SessionStorage"><a href="#LocalStorage和SessionStorage" class="headerlink" title="LocalStorage和SessionStorage"></a>LocalStorage和SessionStorage</h3><p>LocalStorage和SessionStorage一样都是用来存储客户端临时信息的对象。<br>LocalStorage：解决了cookie存储空间的不足的问题（每条cookie的存储空间为4K）。并且LocalStorage有永久的生命周期。<br>SessionStorage：顾名思义它是一个会话存储对象，用于临时保存同一标签页的数据，在关闭标签页之后将会删除这些数据。</p>
-<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>Cookis直译过来就是“小型文本文件”的意思。<br>在计算机术语中，Cookis是指某些网站为了辨别用户身份而储存在用户本地终端（Client Side）上的数据。</p>
-<h2 id="三-LocalStorage-SessionStorage-Cookie之间的对比"><a href="#三-LocalStorage-SessionStorage-Cookie之间的对比" class="headerlink" title="三 LocalStorage,SessionStorage,Cookie之间的对比"></a>三 LocalStorage,SessionStorage,Cookie之间的对比</h2><table>
-<thead>
-<tr>
-<th align="center">特性</th>
-<th align="center">LocalStorage</th>
-<th align="center">SessionStorage</th>
-<th align="center">Cookie</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">生命周期</td>
-<td align="center">永久，可以手动清除</td>
-<td align="center">仅在当前会话下有效，关闭页面或者浏览器会后被清除</td>
-<td align="center">一般由服务器生成，可设置失效时间。如果在浏览器端生成Cookie，默认是关闭浏览器后失效</td>
-</tr>
-<tr>
-<td align="center">数据大小</td>
-<td align="center">一般为5MB</td>
-<td align="center">一般为5MB</td>
-<td align="center">4K左右</td>
-</tr>
-<tr>
-<td align="center">与服务端连接与否</td>
-<td align="center">仅在浏览器保存，不参与和服务器的通信</td>
-<td align="center">仅在浏览器保存，不参与和服务器的通信</td>
-<td align="center">每次都会携带在HTTP头中，参与和服务器的通信</td>
-</tr>
-</tbody></table>
+        <p>position属性指定了元素的定位类型<br>position属性有五个值static,relative,fixed,absolute,sticky,本文将通过具体例子来说明其作用。<br>1.static<br>static是默认值，表示不会被定位（top,right,bottom,left属性都不起作用）<br>例：<br><img src="/images/6.1.png" width = "200" height = "200" alt="static" align=center /><br>从上面的例可以看出，如果设置position的值为static，left等属性不会改变元素位置（默认position值为static）<br>###html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>float_test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">		<span class="selector-class">.div1</span>&#123;<span class="attribute">width</span>: <span class="number">100px</span>;<span class="attribute">height</span>: <span class="number">100px</span>;<span class="attribute">background-color</span>: red;<span class="attribute">position</span>: static;<span class="attribute">left</span>: <span class="number">20px</span>;&#125;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div1"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>div1<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/31/2/" data-id="ck8ojrv4e0004dnnd74iv99e2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/06/6/" data-id="ck8ojrv4b0001dnnd3eafgn7d" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
 
     </footer>
   </div>
@@ -139,19 +114,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/04/01/3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          src和href的区别
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/03/30/1/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/04/04/5/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">开始写博客</div>
+      <div class="article-nav-title">clear方法清除浮动</div>
     </a>
   
 </nav>
