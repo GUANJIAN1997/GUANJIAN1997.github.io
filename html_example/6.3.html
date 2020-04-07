@@ -5,19 +5,18 @@
   
 
   
-  <title>LocalStorage,SessionStorage,Cookie的区别 | 关健的博客</title>
+  <title>关健的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一 引言HTML5加入了新的web存储的技术LocalStorage，那么LocalStorage,SessionStorage和Cookie到底有什么区别呢？ 二 概念LocalStorage和SessionStorageLocalStorage和SessionStorage一样都是用来存储客户端临时信息的对象。LocalStorage：解决了cookie存储空间的不足的问题（每条cookie的">
-<meta property="og:type" content="article">
-<meta property="og:title" content="LocalStorage,SessionStorage,Cookie的区别">
-<meta property="og:url" content="http://yoursite.com/2020/03/31/2/index.html">
+  <meta name="description" content="position_test 	 		.static{width: 100px;height: 100px;background-color: red;position: static;left: 20px;} 		.fixed{width: 100px;height: 100px;background-color: yellow;position: fixed;top: 0px;rig">
+<meta property="og:type" content="website">
+<meta property="og:title" content="关健的博客">
+<meta property="og:url" content="http://yoursite.com/html_example/6.3.html">
 <meta property="og:site_name" content="关健的博客">
-<meta property="og:description" content="一 引言HTML5加入了新的web存储的技术LocalStorage，那么LocalStorage,SessionStorage和Cookie到底有什么区别呢？ 二 概念LocalStorage和SessionStorageLocalStorage和SessionStorage一样都是用来存储客户端临时信息的对象。LocalStorage：解决了cookie存储空间的不足的问题（每条cookie的">
+<meta property="og:description" content="position_test 	 		.static{width: 100px;height: 100px;background-color: red;position: static;left: 20px;} 		.fixed{width: 100px;height: 100px;background-color: yellow;position: fixed;top: 0px;rig">
 <meta property="og:locale" content="zh">
-<meta property="article:published_time" content="2020-03-31T13:05:20.000Z">
-<meta property="article:modified_time" content="2020-04-01T13:44:06.606Z">
+<meta property="article:published_time" content="2020-04-07T04:12:11.368Z">
+<meta property="article:modified_time" content="2020-04-07T04:12:11.368Z">
 <meta property="article:author" content="关健">
-<meta property="article:tag" content="HTML">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="关健的博客" type="application/atom+xml">
@@ -67,95 +66,56 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-2" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/03/31/2/" class="article-date">
-  <time datetime="2020-03-31T13:05:20.000Z" itemprop="datePublished">2020-03-31</time>
+    <a href="/html_example/6.3.html" class="article-date">
+  <time datetime="2020-04-07T04:12:11.368Z" itemprop="datePublished">2020-04-07</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      LocalStorage,SessionStorage,Cookie的区别
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一-引言"><a href="#一-引言" class="headerlink" title="一 引言"></a>一 引言</h2><p><a href="https://zh.wikipedia.org/wiki/HTML5" target="_blank" rel="noopener" title="HTML5">HTML5</a>加入了新的web存储的技术LocalStorage，那么LocalStorage,SessionStorage和Cookie到底有什么区别呢？</p>
-<h2 id="二-概念"><a href="#二-概念" class="headerlink" title="二 概念"></a>二 概念</h2><h3 id="LocalStorage和SessionStorage"><a href="#LocalStorage和SessionStorage" class="headerlink" title="LocalStorage和SessionStorage"></a>LocalStorage和SessionStorage</h3><p>LocalStorage和SessionStorage一样都是用来存储客户端临时信息的对象。<br>LocalStorage：解决了cookie存储空间的不足的问题（每条cookie的存储空间为4K）。并且LocalStorage有永久的生命周期。<br>SessionStorage：顾名思义它是一个会话存储对象，用于临时保存同一标签页的数据，在关闭标签页之后将会删除这些数据。</p>
-<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>Cookis直译过来就是“小型文本文件”的意思。<br>在计算机术语中，Cookis是指某些网站为了辨别用户身份而储存在用户本地终端（Client Side）上的数据。</p>
-<h2 id="三-LocalStorage-SessionStorage-Cookie之间的对比"><a href="#三-LocalStorage-SessionStorage-Cookie之间的对比" class="headerlink" title="三 LocalStorage,SessionStorage,Cookie之间的对比"></a>三 LocalStorage,SessionStorage,Cookie之间的对比</h2><table>
-<thead>
-<tr>
-<th align="center">特性</th>
-<th align="center">LocalStorage</th>
-<th align="center">SessionStorage</th>
-<th align="center">Cookie</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">生命周期</td>
-<td align="center">永久，可以手动清除</td>
-<td align="center">仅在当前会话下有效，关闭页面或者浏览器会后被清除</td>
-<td align="center">一般由服务器生成，可设置失效时间。如果在浏览器端生成Cookie，默认是关闭浏览器后失效</td>
-</tr>
-<tr>
-<td align="center">数据大小</td>
-<td align="center">一般为5MB</td>
-<td align="center">一般为5MB</td>
-<td align="center">4K左右</td>
-</tr>
-<tr>
-<td align="center">与服务端连接与否</td>
-<td align="center">仅在浏览器保存，不参与和服务器的通信</td>
-<td align="center">仅在浏览器保存，不参与和服务器的通信</td>
-<td align="center">每次都会携带在HTTP头中，参与和服务器的通信</td>
-</tr>
-</tbody></table>
-
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>position_test</title>
+	<style>
+		.static{width: 100px;height: 100px;background-color: red;position: static;left: 20px;}
+		.fixed{width: 100px;height: 100px;background-color: yellow;position: fixed;top: 0px;right: 0px;}
+		p{margin-top:500px;background: red;}
+	</style>
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+	<div class="static"><span>div1</span><br><span>static</span></div>
+	<div class="fixed"><span>div2</span><br><span>fixed</span></div>
+	<div class="static"><span>div3</span><br><span>static</span></div>
+	<p>text</p>
+	<p>text</p>
+	<p>text</p>
+	<p>text</p>
+	<p>text</p>
+	<p>text</p>
+	<p>text</p>
+	<p>text</p>
+	<p>text</p>
+	<p>text</p>
+	<p>text</p>
+</body>
+</html>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/31/2/" data-id="ck8pfg8vc0001vfndaea28bdu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/html_example/6.3.html" data-id="ck8pfg8vx000gvfnd573d4nka" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
-
     </footer>
   </div>
   
     
-<nav id="article-nav">
-  
-    <a href="/2020/04/01/3/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          src和href的区别
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/03/30/1/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">开始写博客</div>
-    </a>
-  
-</nav>
-
   
 </article>
 
