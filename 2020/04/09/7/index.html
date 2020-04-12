@@ -5,19 +5,19 @@
   
 
   
-  <title>src和href的区别 | 关健的博客</title>
+  <title>JavaScript中的声明提前 | 关健的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一 引言引入链接和css文件的时候会用href属性，引入图片和js文件的时候却用src属性，同样是加载外部文件这两个属性到底有什么区别呢？ 二 概念href (Hypertext Reference): 译为超文本引用。href是指向网络资源的所在位置，建立起来和当前文档的链接。  例如:当浏览器解析到这一句话的时候会识别文档为css文件，会下载且不会中断对当前页面的处理。    src(sour">
+  <meta name="description" content="JavaScript语言是从上到下依此执行的，但是JavaScript的函数作用域是指在函数内声明的变量在函数体内始终可见，也就意味着变量在声明之前就已经可用了。JavaScript的这一特性被非正式地称为声明提前（hoisting），即JavaScript函数里声明的所有变量（但不涉及赋值）都被“提前”至函数体的顶部。（这步操作是在JavaScript“预编译”时进行的）下面我们看一个例子：##">
 <meta property="og:type" content="article">
-<meta property="og:title" content="src和href的区别">
-<meta property="og:url" content="http://yoursite.com/2020/04/01/3/index.html">
+<meta property="og:title" content="JavaScript中的声明提前">
+<meta property="og:url" content="http://yoursite.com/2020/04/09/7/index.html">
 <meta property="og:site_name" content="关健的博客">
-<meta property="og:description" content="一 引言引入链接和css文件的时候会用href属性，引入图片和js文件的时候却用src属性，同样是加载外部文件这两个属性到底有什么区别呢？ 二 概念href (Hypertext Reference): 译为超文本引用。href是指向网络资源的所在位置，建立起来和当前文档的链接。  例如:当浏览器解析到这一句话的时候会识别文档为css文件，会下载且不会中断对当前页面的处理。    src(sour">
+<meta property="og:description" content="JavaScript语言是从上到下依此执行的，但是JavaScript的函数作用域是指在函数内声明的变量在函数体内始终可见，也就意味着变量在声明之前就已经可用了。JavaScript的这一特性被非正式地称为声明提前（hoisting），即JavaScript函数里声明的所有变量（但不涉及赋值）都被“提前”至函数体的顶部。（这步操作是在JavaScript“预编译”时进行的）下面我们看一个例子：##">
 <meta property="og:locale" content="zh">
-<meta property="article:published_time" content="2020-04-01T13:42:47.000Z">
-<meta property="article:modified_time" content="2020-04-03T14:14:37.779Z">
+<meta property="article:published_time" content="2020-04-09T05:53:39.000Z">
+<meta property="article:modified_time" content="2020-04-12T04:18:48.388Z">
 <meta property="article:author" content="关健">
-<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="关健的博客" type="application/atom+xml">
@@ -67,10 +67,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-3" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-7" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/04/01/3/" class="article-date">
-  <time datetime="2020-04-01T13:42:47.000Z" itemprop="datePublished">2020-04-01</time>
+    <a href="/2020/04/09/7/" class="article-date">
+  <time datetime="2020-04-09T05:53:39.000Z" itemprop="datePublished">2020-04-09</time>
 </a>
     
   <div class="article-category">
@@ -85,7 +85,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      src和href的区别
+      JavaScript中的声明提前
     </h1>
   
 
@@ -93,24 +93,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一-引言"><a href="#一-引言" class="headerlink" title="一 引言"></a>一 引言</h2><p>引入链接和css文件的时候会用href属性，引入图片和js文件的时候却用src属性，同样是加载外部文件这两个属性到底有什么区别呢？</p>
-<h2 id="二-概念"><a href="#二-概念" class="headerlink" title="二 概念"></a>二 概念</h2><p>href (Hypertext Reference): 译为超文本引用。href是指向网络资源的所在位置，建立起来和当前文档的链接。</p>
-<blockquote>
-<p>例如:<link href="xxx.css" rel="stylesheet"/>当浏览器解析到这一句话的时候会识别文档为css文件，<strong>会下载且不会中断对当前页面的处理</strong>。  </p>
-</blockquote>
-<p>src(source）: src是指向外部资源的位置并且将指向的资源加载并应用到当前的文档中。</p>
-<blockquote>
-<p>例如:<span><script src="xxx.js"></script></span>当浏览器解析到这一句话的时候会暂停对当前页面的处理，直到将次资源加载，编译完成。所以js文件一般都放在<body>的最后。</p>
-</blockquote>
-<h2 id="三-总结"><a href="#三-总结" class="headerlink" title="三 总结"></a>三 总结</h2><p>href用于建立标签和外部资源之间建立一个关系，src可替代这个元素。</p>
+        <p>JavaScript语言是从上到下依此执行的，但是JavaScript的函数作用域是指在函数内声明的变量在函数体内始终可见，也就意味着变量在声明之前就已经可用了。<br>JavaScript的这一特性被非正式地称为声明提前（hoisting），即JavaScript函数里声明的所有变量（但不涉及赋值）都被“提前”至函数体的顶部。（这步操作是在JavaScript“预编译”时进行的）<br>下面我们看一个例子：<br>###JavaScript</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope=<span class="string">"global"</span>; <span class="comment">//定义一个全局变量scope</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">	<span class="keyword">var</span> scope=<span class="string">"local"</span>;<span class="comment">//在函数体内重新定义局部变量scope</span></span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###输出结果：<br>undefined<br>local<br>我们在我们可能误以为第一个输出是“global”，因为函数还没有执行到var语句声明局部变量的地方。由于函数作用域的特性，局部变量在整个函数体始终是有定义的，也就是说，在函数体内局部变量遮盖了同名全局变量。尽管如此，只有在程序执行到var语句的时候，局部变量才会被真正赋值。所以上述过程等价于：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope=<span class="string">"global"</span>; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> scope;<span class="comment">//声明局部变量scope</span></span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">	scope=<span class="string">"local"</span>;<span class="comment">//局部变量赋值</span></span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/01/3/" data-id="ck8pfo77h0007yindctms5mwr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/09/7/" data-id="ck8wjgr0x0000e1ndc2zwcze4" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
 
     </footer>
   </div>
@@ -118,19 +112,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/04/03/4/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          通过实际例子通俗说明css浮动
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/03/31/2/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/04/06/6/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">LocalStorage,SessionStorage,Cookie的区别</div>
+      <div class="article-nav-title">CSS position定位</div>
     </a>
   
 </nav>
