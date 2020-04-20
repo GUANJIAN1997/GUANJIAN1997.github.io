@@ -64,6 +64,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-9" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/20/9/" class="article-date">
+  <time datetime="2020-04-20T06:22:12.000Z" itemprop="datePublished">2020-04-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/20/9/">闭包</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一-闭包的概念"><a href="#一-闭包的概念" class="headerlink" title="一 闭包的概念"></a>一 闭包的概念</h3><p>函数对象可以通过作用域链相互关联起来，函数体内部的变量都可以保存在函数作用域内，这种特性在计算机科学文献中称为“闭包”。书上的概念有些难懂，我的理解闭包就是为了读取其他函数变量的函数。<br>例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> n=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(n);<span class="comment">//ReferenceError: n is not defined</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
+<p>由于n被定义为函数的内部的局部变量，所以在函数的外部不能访问。<br>为了得到函数内部的局部变量我们可以在函数的内部定一个函数。<br>例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> n=<span class="number">1</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(n);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> f2;</span><br><span class="line">&#125;</span><br><span class="line">f1()();<span class="comment">//1</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
+<p>变量n在f2的父作用域，所以f2可以调用n。</p>
+<h3 id="二-闭包的用途"><a href="#二-闭包的用途" class="headerlink" title="二 闭包的用途"></a>二 闭包的用途</h3><p>1.前面提到的可以读取函数内部的变量。<br>2.让这些变量的值始终保持在内存中。<br>例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">counter</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> n=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> n++;&#125;;</span><br><span class="line">&#125;</span><br><span class="line">c=counter();</span><br><span class="line"><span class="built_in">console</span>.log(c());<span class="comment">//0</span></span><br><span class="line"><span class="built_in">console</span>.log(c());<span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(c());<span class="comment">//2</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
+<p>counter内部的函数一共运行了三次，每次值都增加一，说明内部的函数不仅能访问外部函数的变量而且还能一直在内存中，不会在内部函数调用之后清除。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/20/9/" data-id="ck989wji20006mdndhgs24zvo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-8" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/04/13/8/" class="article-date">
@@ -92,16 +138,16 @@
       
         <p>要想了解JavaScript的作用域链就要先知道什么是作用域。</p>
 <h3 id="一-作用域"><a href="#一-作用域" class="headerlink" title="一 作用域"></a>一 作用域</h3><p>作用域是程序源代码中定义这个变量的区域。全局变量拥有全局作用域，在JavaScript代码中的任何地方都是有定义的。然而在函数内声明的变量只在函数体内有定义。它们是局部变量，作用域是局部性的。看例子就很容易理解。<br>例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> global_scope=<span class="string">"global"</span>; <span class="comment">//定义一个全局变量global_scope</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> local_scope=<span class="string">"local"</span>;<span class="comment">//在函数体内定义局部变量local_scope</span></span><br><span class="line">	<span class="built_in">console</span>.log(global_scope);<span class="comment">//输出global_scope</span></span><br><span class="line">	<span class="built_in">console</span>.log(local_scope);<span class="comment">//输出local_scope</span></span><br><span class="line">&#125;</span><br><span class="line">test();</span><br><span class="line"><span class="built_in">console</span>.log(global_scope);<span class="comment">//输出global_scope</span></span><br><span class="line"><span class="built_in">console</span>.log(local_scope);<span class="comment">//输出local_scope</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">global_scope=<span class="string">"global"</span>; <span class="comment">//定义一个全局变量global_scope</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> local_scope=<span class="string">"local"</span>;<span class="comment">//在函数体内定义局部变量local_scope</span></span><br><span class="line">	<span class="built_in">console</span>.log(global_scope);<span class="comment">//输出global_scope</span></span><br><span class="line">	<span class="built_in">console</span>.log(local_scope);<span class="comment">//输出local_scope</span></span><br><span class="line">&#125;</span><br><span class="line">test();</span><br><span class="line"><span class="built_in">console</span>.log(global_scope);<span class="comment">//输出global_scope</span></span><br><span class="line"><span class="built_in">console</span>.log(local_scope);<span class="comment">//输出local_scope</span></span><br></pre></td></tr></table></figure>
 <p>结果：<br>global<br>local<br>global<br>ReferenceError: local_scope is not defined<br>前三个都正常输出，第四个出现未定义错误。<br>因为global_scope是在函数外部定义的全局变量，无论是在函数内还是函数外都可以访问。<br>而local_scope是在函数内定义的局部变量所以只能在函数题内访问。</p>
 <h3 id="二-作用域链"><a href="#二-作用域链" class="headerlink" title="二 作用域链"></a>二 作用域链</h3><p>作用域链就是在当前作用域没找到变量的定义就到当前作用域的上一级找，直到全局作用域为止。这样一层一层的关系就是作用域链。<br>例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">100</span>; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> b=<span class="number">200</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> c=<span class="number">300</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(c);</span><br><span class="line">	<span class="built_in">console</span>.log(b);</span><br><span class="line">	<span class="built_in">console</span>.log(a);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> f2();</span><br><span class="line">&#125;</span><br><span class="line">f1();</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">100</span>; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> b=<span class="number">200</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> c=<span class="number">300</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(c);</span><br><span class="line">	<span class="built_in">console</span>.log(b);</span><br><span class="line">	<span class="built_in">console</span>.log(a);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> f2();</span><br><span class="line">&#125;</span><br><span class="line">f1();</span><br></pre></td></tr></table></figure>
 <p>c在f2函数体内定义，直接输出，b和c通过作用域链寻找。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/13/8/" data-id="ck946lkr30000l0nddv39cqfi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/13/8/" data-id="ck989wji7000cmdndfvas4nog" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
@@ -140,14 +186,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>JavaScript语言是从上到下依此执行的，但是JavaScript的函数作用域是指在函数内声明的变量在函数体内始终可见，也就意味着变量在声明之前就已经可用了。<br>JavaScript的这一特性被非正式地称为声明提前（hoisting），即JavaScript函数里声明的所有变量（但不涉及赋值）都被“提前”至函数体的顶部。（这步操作是在JavaScript“预编译”时进行的）<br>下面我们看一个例子：<br>###JavaScript</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope=<span class="string">"global"</span>; <span class="comment">//定义一个全局变量scope</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">	<span class="keyword">var</span> scope=<span class="string">"local"</span>;<span class="comment">//在函数体内重新定义局部变量scope</span></span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scope=<span class="string">"global"</span>; <span class="comment">//定义一个全局变量scope</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">	<span class="keyword">var</span> scope=<span class="string">"local"</span>;<span class="comment">//在函数体内重新定义局部变量scope</span></span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>###输出结果：<br>undefined<br>local<br>我们在我们可能误以为第一个输出是“global”，因为函数还没有执行到var语句声明局部变量的地方。由于函数作用域的特性，局部变量在整个函数体始终是有定义的，也就是说，在函数体内局部变量遮盖了同名全局变量。尽管如此，只有在程序执行到var语句的时候，局部变量才会被真正赋值。所以上述过程等价于：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope=<span class="string">"global"</span>; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> scope;<span class="comment">//声明局部变量scope</span></span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">	scope=<span class="string">"local"</span>;<span class="comment">//局部变量赋值</span></span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">scope=<span class="string">"global"</span>; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> scope;<span class="comment">//声明局部变量scope</span></span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">	scope=<span class="string">"local"</span>;<span class="comment">//局部变量赋值</span></span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/09/7/" data-id="ck8wjgr0x0000e1ndc2zwcze4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/09/7/" data-id="ck989wjia000imdnd3xs94t72" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
@@ -219,7 +265,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/06/6/" data-id="ck8pfo77f0005yind58rdd6b6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/06/6/" data-id="ck989wji9000gmdnd7opthrlp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
@@ -293,7 +339,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/04/5/" data-id="ck8pfo77l000cyind2r8pdldk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/04/5/" data-id="ck989wji6000bmdndgpbmh3qb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
@@ -396,7 +442,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/03/4/" data-id="ck8pfo77g0006yind978phc7w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/03/4/" data-id="ck989wji10005mdnd7qvwck3i" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
@@ -448,7 +494,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/01/3/" data-id="ck8pfo77h0007yindctms5mwr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/01/3/" data-id="ck989wjhs0000mdnd8cb43gqx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
@@ -521,7 +567,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/31/2/" data-id="ck8pfo77c0002yinde0gfhf87" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/31/2/" data-id="ck989wjib000mmdnddnneam1f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
@@ -566,7 +612,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/30/1/" data-id="ck8pfo7770000yind8anga0y8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/30/1/" data-id="ck989wjhx0002mdnd20lid2mq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%AF%95%E8%AF%95/" rel="tag">第一次试试</a></li></ul>
@@ -617,7 +663,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/29/hello-world/" data-id="ck8pfo77j000byindgbbkddmc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/29/hello-world/" data-id="ck989wji30007mdnd2gd5cwfm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -657,7 +703,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/HTML/" style="font-size: 15px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%AF%95%E8%AF%95/" style="font-size: 10px;">第一次试试</a>
+      <a href="/tags/CSS/" style="font-size: 20px;">CSS</a> <a href="/tags/HTML/" style="font-size: 15px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%AF%95%E8%AF%95/" style="font-size: 10px;">第一次试试</a>
     </div>
   </div>
 
@@ -679,6 +725,10 @@
       <ul>
         
           <li>
+            <a href="/2020/04/20/9/">闭包</a>
+          </li>
+        
+          <li>
             <a href="/2020/04/13/8/">JavaScript的作用域链</a>
           </li>
         
@@ -692,10 +742,6 @@
         
           <li>
             <a href="/2020/04/04/5/">clear方法清除浮动</a>
-          </li>
-        
-          <li>
-            <a href="/2020/04/03/4/">通过实际例子通俗说明css浮动</a>
           </li>
         
       </ul>
