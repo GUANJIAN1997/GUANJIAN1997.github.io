@@ -7,15 +7,15 @@
   
   <title>JavaScript的记忆功能（函数添加缓存） | 关健的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="“记忆”方法是一种编程技巧，就是利用闭包将上一次的计算结果缓存起来，牺牲算法的空间复杂度换取更优的时间复杂度，提高运行效率。###斐波那契数列斐波纳契（Fibonacci）数列的定义：F(1)&#x3D;1，F(2)&#x3D;1, F(n)&#x3D;F(n-1)+F(n-2)（n&gt;2，n∈N*）；递归实现： 1234567function fibonacci(n)&amp;#123;	if (n&lt;2)		return">
+  <meta name="description" content="“记忆”方法是一种编程技巧，就是利用闭包将上一次的计算结果缓存起来，牺牲算法的空间复杂度换取更优的时间复杂度，提高运行效率。 波那契数列斐波纳契（Fibonacci）数列的定义：F(1)&#x3D;1，F(2)&#x3D;1, F(n)&#x3D;F(n-1)+F(n-2)（n&gt;2，n∈N*）；递归实现： 1234567function fibonacci(n)&amp;#123;	if (n&lt;2)		return n;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript的记忆功能（函数添加缓存）">
 <meta property="og:url" content="http://yoursite.com/2020/04/20/10/index.html">
 <meta property="og:site_name" content="关健的博客">
-<meta property="og:description" content="“记忆”方法是一种编程技巧，就是利用闭包将上一次的计算结果缓存起来，牺牲算法的空间复杂度换取更优的时间复杂度，提高运行效率。###斐波那契数列斐波纳契（Fibonacci）数列的定义：F(1)&#x3D;1，F(2)&#x3D;1, F(n)&#x3D;F(n-1)+F(n-2)（n&gt;2，n∈N*）；递归实现： 1234567function fibonacci(n)&amp;#123;	if (n&lt;2)		return">
+<meta property="og:description" content="“记忆”方法是一种编程技巧，就是利用闭包将上一次的计算结果缓存起来，牺牲算法的空间复杂度换取更优的时间复杂度，提高运行效率。 波那契数列斐波纳契（Fibonacci）数列的定义：F(1)&#x3D;1，F(2)&#x3D;1, F(n)&#x3D;F(n-1)+F(n-2)（n&gt;2，n∈N*）；递归实现： 1234567function fibonacci(n)&amp;#123;	if (n&lt;2)		return n;">
 <meta property="og:locale" content="zh">
 <meta property="article:published_time" content="2020-04-20T11:52:57.000Z">
-<meta property="article:modified_time" content="2020-04-21T04:28:34.975Z">
+<meta property="article:modified_time" content="2020-05-18T14:31:35.446Z">
 <meta property="article:author" content="关健">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
@@ -89,7 +89,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>“记忆”方法是一种编程技巧，就是利用闭包将上一次的计算结果缓存起来，牺牲算法的空间复杂度换取更优的时间复杂度，提高运行效率。<br>###斐波那契数列<br>斐波纳契（Fibonacci）数列的定义：F(1)=1，F(2)=1, F(n)=F(n-1)+F(n-2)（n&gt;2，n∈N*）；<br>递归实现：</p>
+        <p>“记忆”方法是一种编程技巧，就是利用闭包将上一次的计算结果缓存起来，牺牲算法的空间复杂度换取更优的时间复杂度，提高运行效率。</p>
+<h3 id="波那契数列"><a href="#波那契数列" class="headerlink" title="波那契数列"></a>波那契数列</h3><p>斐波纳契（Fibonacci）数列的定义：F(1)=1，F(2)=1, F(n)=F(n-1)+F(n-2)（n&gt;2，n∈N*）；<br>递归实现：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibonacci</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (n&lt;<span class="number">2</span>)</span><br><span class="line">		<span class="keyword">return</span> n;</span><br><span class="line">	<span class="keyword">else</span> </span><br><span class="line">		<span class="keyword">return</span> fibonacci(n<span class="number">-1</span>)+fibonacci(n<span class="number">-2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
 <p>但是递归方法实现的时间复杂度为O(2^N)，重复计算的次数过多。为了减少递归次数可以把计算结果缓存起来。<br>加入缓存的fibonacci：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cache=&#123;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fibonacci</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(n&lt;<span class="number">2</span>)</span><br><span class="line">		<span class="keyword">return</span> n;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(cache[n])</span><br><span class="line">		<span class="keyword">return</span> cache[n];</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> cache[n]=fibonacci(n<span class="number">-1</span>)+fibonacci(n<span class="number">-2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
@@ -100,7 +101,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/20/10/" data-id="ck99erv5g0000g9ndcuih5kg7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/20/10/" data-id="ckacl9e2o00005ond9tbwag1w" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
@@ -110,6 +111,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2020/05/17/11/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript的let和const
+        
+      </div>
+    </a>
   
   
     <a href="/2020/04/20/9/" id="article-nav-older" class="article-nav-link-wrap">
@@ -159,7 +169,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
     </div>
   </div>
 
@@ -170,6 +180,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/05/17/11/">JavaScript的let和const</a>
+          </li>
         
           <li>
             <a href="/2020/04/20/10/">JavaScript的记忆功能（函数添加缓存）</a>
@@ -185,10 +199,6 @@
         
           <li>
             <a href="/2020/04/09/7/">JavaScript中的声明提前</a>
-          </li>
-        
-          <li>
-            <a href="/2020/04/06/6/">CSS position定位</a>
           </li>
         
       </ul>
