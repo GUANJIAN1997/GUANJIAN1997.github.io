@@ -5,14 +5,19 @@
   
 
   
-  <title>Tag: HTML | 关健的博客</title>
+  <title>二倍图，三倍图 | 关健的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="关健的博客">
-<meta property="og:url" content="http://yoursite.com/tags/HTML/index.html">
+  <meta name="description" content="[转自 https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;76f8d8e158ab]比如你需要一个30pt30pt的图标，那么这时你就需要跟美工（美术工程师）要三个文件：一个是30px30px的PNG图片，用原名来命名即可，例如sample.png。 一个是60px60px的PNG图片，这个要用原名@2x来命名，例如sample@2x.png。一个是90px90px的PNG图片，这个要用原名@3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二倍图，三倍图">
+<meta property="og:url" content="http://yoursite.com/2020/06/30/14/index.html">
 <meta property="og:site_name" content="关健的博客">
+<meta property="og:description" content="[转自 https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;76f8d8e158ab]比如你需要一个30pt30pt的图标，那么这时你就需要跟美工（美术工程师）要三个文件：一个是30px30px的PNG图片，用原名来命名即可，例如sample.png。 一个是60px60px的PNG图片，这个要用原名@2x来命名，例如sample@2x.png。一个是90px90px的PNG图片，这个要用原名@3">
 <meta property="og:locale" content="zh">
+<meta property="article:published_time" content="2020-06-30T08:07:25.000Z">
+<meta property="article:modified_time" content="2020-06-30T08:10:59.193Z">
 <meta property="article:author" content="关健">
+<meta property="article:tag" content="术语">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="关健的博客" type="application/atom+xml">
@@ -62,59 +67,64 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/04/01/3/" class="archive-article-date">
-  <time datetime="2020-04-01T13:42:47.000Z" itemprop="datePublished">Apr 1</time>
+        <section id="main"><article id="post-14" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/30/14/" class="article-date">
+  <time datetime="2020-06-30T08:07:25.000Z" itemprop="datePublished">2020-06-30</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/01/3/">src和href的区别</a>
+    <h1 class="article-title" itemprop="name">
+      二倍图，三倍图
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/03/31/2/" class="archive-article-date">
-  <time datetime="2020-03-31T13:05:20.000Z" itemprop="datePublished">Mar 31</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/31/2/">LocalStorage,SessionStorage,Cookie的区别</a>
-    </h1>
-  
+        <p>[转自 <a href="https://www.jianshu.com/p/76f8d8e158ab]" target="_blank" rel="noopener">https://www.jianshu.com/p/76f8d8e158ab]</a><br>比如你需要一个30pt<em>30pt的图标，那么这时你就需要跟美工（美术工程师）要三个文件：<br>一个是30px</em>30px的PNG图片，用原名来命名即可，例如sample.png。</p>
+<p>一个是60px<em>60px的PNG图片，这个要用原名@2x来命名，例如<a href="mailto:sample@2x.png">sample@2x.png</a>。<br>一个是90px</em>90px的PNG图片，这个要用原名@3x来命名，例如<a href="mailto:sample@3x.png">sample@3x.png</a>。</p>
+<p>这样把这三张图片导入进工程，你会神奇地发现，这三个文件居然会被iOS统一识别为sample.png，用的时候只需要[UIImage imageNamed:@”sample”]就行了。</p>
+<p>那么讲一下应用场景。</p>
+<p>1x的图标用于1:1的屏幕，非视网膜屏，例如iPhone 3GS、（/<em>20140414DEL</em>/ //早期iPhone 4、感谢@池谷湧指正）非视网膜屏的众多iPad等。</p>
+<p>2x的图标用于1:2的屏幕，大部分视网膜屏，机型如（/<em>20140414ADD</em>/ iPhone 4、）iPhone 4S、iPhone 5、iPhone 5s、iPhone 6、iPad with Retina及后续的视网膜屏iPad等。</p>
+<p>3x的图标目前应用于1:3的屏幕，即iPhone 6Plus，这个就比较特殊了，因为苹果为了方便开发者，想出来一个简便的实现方案，将2208<em>1242分辨率的图像压缩输出在1920</em>1080的屏幕上。</p>
+<p>像素:英文名叫px</p>
+<p>像素是构成图像最基本的点，平时说的像素多少也就是这些点的多少。而分辨率就是构成图像的点的排列方式。比如说一张照片的分辨率1600<em>1200，就表示这个照片上一共有1600</em>1200=192万个像素，每个横道有1600个像素，每个竖道有1200个像素</p>
+<p>分辨率</p>
+<p>说手机分辨率是1334×750代表，纵向有1334像素，横向有750像素</p>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/30/14/" data-id="ckc1nsyf6000b99nd11n3hr0n" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%AF%E8%AF%AD/" rel="tag">术语</a></li></ul>
+
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/06/25/13/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">JS 深拷贝 浅拷贝</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         
