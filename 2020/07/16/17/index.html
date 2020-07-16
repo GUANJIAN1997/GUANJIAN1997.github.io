@@ -5,17 +5,17 @@
   
 
   
-  <title>JavaScript中的声明提前 | 关健的博客</title>
+  <title>JavaScript &amp;&amp; 的活用 | 关健的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JavaScript语言是从上到下依此执行的，但是JavaScript的函数作用域是指在函数内声明的变量在函数体内始终可见，也就意味着变量在声明之前就已经可用了。JavaScript的这一特性被非正式地称为声明提前（hoisting），即JavaScript函数里声明的所有变量（但不涉及赋值）都被“提前”至函数体的顶部。（这步操作是在JavaScript“预编译”时进行的）下面我们看一个例子：##">
+  <meta name="description" content="首先来了解一下“&amp;&amp;”操作符的计算过程：“&amp;&amp;”连接两个表达式，当两侧表达式都为真时，返回True。有一个为假则返回False。实际运行的时候，首先判断左侧的表达式，如果左侧的表达式是False的话，整个式子一定是False，所以不会对右侧的表达式进行判断。掌握“&amp;&amp;”的这个特点就可以用它来替代条件判断语句的写法。 1if(a&#x3D;&#x3D;b)&amp;#123;co">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript中的声明提前">
-<meta property="og:url" content="http://yoursite.com/2020/04/09/7/index.html">
+<meta property="og:title" content="JavaScript &amp;&amp; 的活用">
+<meta property="og:url" content="http://yoursite.com/2020/07/16/17/index.html">
 <meta property="og:site_name" content="关健的博客">
-<meta property="og:description" content="JavaScript语言是从上到下依此执行的，但是JavaScript的函数作用域是指在函数内声明的变量在函数体内始终可见，也就意味着变量在声明之前就已经可用了。JavaScript的这一特性被非正式地称为声明提前（hoisting），即JavaScript函数里声明的所有变量（但不涉及赋值）都被“提前”至函数体的顶部。（这步操作是在JavaScript“预编译”时进行的）下面我们看一个例子：##">
+<meta property="og:description" content="首先来了解一下“&amp;&amp;”操作符的计算过程：“&amp;&amp;”连接两个表达式，当两侧表达式都为真时，返回True。有一个为假则返回False。实际运行的时候，首先判断左侧的表达式，如果左侧的表达式是False的话，整个式子一定是False，所以不会对右侧的表达式进行判断。掌握“&amp;&amp;”的这个特点就可以用它来替代条件判断语句的写法。 1if(a&#x3D;&#x3D;b)&amp;#123;co">
 <meta property="og:locale" content="zh">
-<meta property="article:published_time" content="2020-04-09T05:53:39.000Z">
-<meta property="article:modified_time" content="2020-04-20T06:50:10.124Z">
+<meta property="article:published_time" content="2020-07-16T01:41:30.000Z">
+<meta property="article:modified_time" content="2020-07-16T02:00:19.257Z">
 <meta property="article:author" content="关健">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
@@ -67,16 +67,12 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-7" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-17" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/04/09/7/" class="article-date">
-  <time datetime="2020-04-09T05:53:39.000Z" itemprop="datePublished">2020-04-09</time>
+    <a href="/2020/07/16/17/" class="article-date">
+  <time datetime="2020-07-16T01:41:30.000Z" itemprop="datePublished">2020-07-16</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -85,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript中的声明提前
+      JavaScript &amp;&amp; 的活用
     </h1>
   
 
@@ -93,15 +89,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>JavaScript语言是从上到下依此执行的，但是JavaScript的函数作用域是指在函数内声明的变量在函数体内始终可见，也就意味着变量在声明之前就已经可用了。<br>JavaScript的这一特性被非正式地称为声明提前（hoisting），即JavaScript函数里声明的所有变量（但不涉及赋值）都被“提前”至函数体的顶部。（这步操作是在JavaScript“预编译”时进行的）<br>下面我们看一个例子：<br>###JavaScript</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scope=<span class="string">"global"</span>; <span class="comment">//定义一个全局变量scope</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">	<span class="keyword">var</span> scope=<span class="string">"local"</span>;<span class="comment">//在函数体内重新定义局部变量scope</span></span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>###输出结果：<br>undefined<br>local<br>我们在我们可能误以为第一个输出是“global”，因为函数还没有执行到var语句声明局部变量的地方。由于函数作用域的特性，局部变量在整个函数体始终是有定义的，也就是说，在函数体内局部变量遮盖了同名全局变量。尽管如此，只有在程序执行到var语句的时候，局部变量才会被真正赋值。所以上述过程等价于：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">scope=<span class="string">"global"</span>; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> scope;<span class="comment">//声明局部变量scope</span></span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">	scope=<span class="string">"local"</span>;<span class="comment">//局部变量赋值</span></span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>首先来了解一下“&amp;&amp;”操作符的计算过程：“&amp;&amp;”连接两个表达式，当两侧表达式都为真时，返回True。有一个为假则返回False。<br>实际运行的时候，首先判断左侧的表达式，如果左侧的表达式是False的话，整个式子一定是False，所以不会对右侧的表达式进行判断。<br>掌握“&amp;&amp;”的这个特点就可以用它来替代条件判断语句的写法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a==b)&#123;<span class="built_in">console</span>.log(<span class="number">1</span>)&#125;</span><br></pre></td></tr></table></figure>
+<p>这个if语句可以写成</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(a==b) &amp;&amp; <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/09/7/" data-id="ckco5chcq000zeznd4dz75j6c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/16/17/" data-id="ckco5chc50009ezndh0qlaoeh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
@@ -112,19 +108,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/04/13/8/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          JavaScript的作用域链
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/06/6/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/07/03/16/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">CSS position定位</div>
+      <div class="article-nav-title">去除inline-block元素间间距的方法</div>
     </a>
   
 </nav>
