@@ -87,7 +87,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>代码的托管平台有很多，比如国内的码云和国外的github，如果想要把本地的项目同时上传到两个远程仓库要在本地建立两个文件夹吗？当然不是！git本身是分布式版本控制系统，一个本地库可以关联多个远程仓库。但是要注意，如果同步到多个远程库，需要用不同的名字来区分。<br>这里以码云和github为例（已经关联到码云的本地库再关联github）：<br>首先查看一下关联的状态：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
 <p>输出：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">origin	码云远程仓库的地址 (fetch)</span><br><span class="line">origin	码云远程仓库的地址 (push)</span><br></pre></td></tr></table></figure>
 <p>因为如果只关联一个远程库默认的名字是origin，为了加以区分首先要把这个远程库的名字改成gitee（或者直接删除再关联）。</p>
