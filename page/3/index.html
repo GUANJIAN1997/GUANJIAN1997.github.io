@@ -64,6 +64,58 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/01/3/" class="article-date">
+  <time datetime="2020-04-01T13:42:47.000Z" itemprop="datePublished">2020-04-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/01/3/">src和href的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一-引言"><a href="#一-引言" class="headerlink" title="一 引言"></a>一 引言</h2><p>引入链接和css文件的时候会用href属性，引入图片和js文件的时候却用src属性，同样是加载外部文件这两个属性到底有什么区别呢？</p>
+<h2 id="二-概念"><a href="#二-概念" class="headerlink" title="二 概念"></a>二 概念</h2><p>href (Hypertext Reference): 译为超文本引用。href是指向网络资源的所在位置，建立起来和当前文档的链接。</p>
+<blockquote>
+<p>例如:<link href="xxx.css" rel="stylesheet"/>当浏览器解析到这一句话的时候会识别文档为css文件，<strong>会下载且不会中断对当前页面的处理</strong>。  </p>
+</blockquote>
+<p>src(source）: src是指向外部资源的位置并且将指向的资源加载并应用到当前的文档中。</p>
+<blockquote>
+<p>例如:<span><script src="xxx.js"></script></span>当浏览器解析到这一句话的时候会暂停对当前页面的处理，直到将次资源加载，编译完成。所以js文件一般都放在<body>的最后。</p>
+</blockquote>
+<h2 id="三-总结"><a href="#三-总结" class="headerlink" title="三 总结"></a>三 总结</h2><p>href用于建立标签和外部资源之间建立一个关系，src可替代这个元素。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/01/3/" data-id="cke27tic7000l3nnd6ip41rbt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/03/31/2/" class="article-date">
@@ -125,7 +177,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/31/2/" data-id="ckdznavhh000nn8ndev04hnwi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/31/2/" data-id="cke27tici001i3nnd832h0ir7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
@@ -176,7 +228,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/29/hello-world/" data-id="ckdznavhs001dn8ndd74v0d4n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/29/hello-world/" data-id="cke27ticd00113nnd4i4w4lyt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -243,6 +295,10 @@
       <ul>
         
           <li>
+            <a href="/2020/08/19/23/">CSS圣杯布局和双飞翼布局</a>
+          </li>
+        
+          <li>
             <a href="/2020/08/18/22/">clientWidth和offsetWidth</a>
           </li>
         
@@ -256,10 +312,6 @@
         
           <li>
             <a href="/2020/08/16/19/">动态规划问题（最少硬币找零）</a>
-          </li>
-        
-          <li>
-            <a href="/2020/08/16/18/">将本地git仓库同时关联到不同的远程仓库</a>
           </li>
         
       </ul>
