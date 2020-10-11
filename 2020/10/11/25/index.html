@@ -5,18 +5,19 @@
   
 
   
-  <title>关健的博客</title>
+  <title>vue-cli项目无法用本机IP访问的问题 | 关健的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="flex 	 		.container { 			width: 200px; 			height: 200px; 			display: flex; 			border: 2px solid black; 			border-radius: 10px; 			flex-direction: column; 			padding: 5px; 		} 		.container .item {">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关健的博客">
-<meta property="og:url" content="http://yoursite.com/flex_24code/flex3.html">
+  <meta name="description" content="在开发过程中会用移动端的设备来预览项目的效果，移动端和本机如果在同一局域网下就移动端可以通过本机的IP来访问项目。可是在我做vue项目的时候手机无法访问到项目。 问题原因：config目录下有一个index.js, dev对象的host属性中vue-cli将host主机名定义为localhost, 从而导致了本地IP不能访问服务。解决方法：将host重新定义为：0.0.0.0即可, 然后重启服务，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-cli项目无法用本机IP访问的问题">
+<meta property="og:url" content="http://yoursite.com/2020/10/11/25/index.html">
 <meta property="og:site_name" content="关健的博客">
-<meta property="og:description" content="flex 	 		.container { 			width: 200px; 			height: 200px; 			display: flex; 			border: 2px solid black; 			border-radius: 10px; 			flex-direction: column; 			padding: 5px; 		} 		.container .item {">
+<meta property="og:description" content="在开发过程中会用移动端的设备来预览项目的效果，移动端和本机如果在同一局域网下就移动端可以通过本机的IP来访问项目。可是在我做vue项目的时候手机无法访问到项目。 问题原因：config目录下有一个index.js, dev对象的host属性中vue-cli将host主机名定义为localhost, 从而导致了本地IP不能访问服务。解决方法：将host重新定义为：0.0.0.0即可, 然后重启服务，">
 <meta property="og:locale" content="zh">
-<meta property="article:published_time" content="2020-08-25T02:49:47.723Z">
-<meta property="article:modified_time" content="2020-08-24T03:38:00.135Z">
+<meta property="article:published_time" content="2020-10-11T11:29:15.000Z">
+<meta property="article:modified_time" content="2020-10-11T11:43:56.408Z">
 <meta property="article:author" content="关健">
+<meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="关健的博客" type="application/atom+xml">
@@ -66,61 +67,55 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-25" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/flex_24code/flex3.html" class="article-date">
-  <time datetime="2020-08-25T02:49:47.723Z" itemprop="datePublished">2020-08-25</time>
+    <a href="/2020/10/11/25/" class="article-date">
+  <time datetime="2020-10-11T11:29:15.000Z" itemprop="datePublished">2020-10-11</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vue-cli项目无法用本机IP访问的问题
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <!DOCTYPE html>
-<html>
-<head>
-	<title>flex</title>
-	<style type="text/css">
-		.container {
-			width: 200px;
-			height: 200px;
-			display: flex;
-			border: 2px solid black;
-			border-radius: 10px;
-			flex-direction: column;
-			padding: 5px;
-		}
-		.container .item {
-			width: 40px;
-			height: 40px;
-			border: 1px solid #ccc;
-			border-radius: 5px;
-			margin: 5px 5px 5px 5px;
-			text-align: center;
-			line-height: 40px;
-		}
-	</style>
-<meta name="generator" content="Hexo 4.2.0"></head>
-<body>
-	<div class="container">
-		<div class="item">1</div>
-		<div class="item">2</div>
-		<div class="item">3</div>
-	</div>
-</body>
-</html>
+        <p>在开发过程中会用移动端的设备来预览项目的效果，移动端和本机如果在同一局域网下就移动端可以通过本机的IP来访问项目。可是在我做vue项目的时候手机无法访问到项目。</p>
+<p>问题原因：<br>config目录下有一个index.js, dev对象的host属性中vue-cli将host主机名定义为localhost, 从而导致了本地IP不能访问服务。<br>解决方法：<br>将host重新定义为：0.0.0.0即可, 然后重启服务，发现localhost、127.0.0.1、本地IP均能正常访问，这样就可以用移动端访问项目啦！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">dev: &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Paths</span></span><br><span class="line">    assetsSubDirectory: <span class="string">'static'</span>,</span><br><span class="line">    assetsPublicPath: <span class="string">'/'</span>,</span><br><span class="line">    proxyTable: &#123;</span><br><span class="line">      <span class="string">'/users'</span>: &#123;<span class="attr">target</span>: <span class="string">'http://localhost:3000'</span>&#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    host: <span class="string">'0.0.0.0'</span>, </span><br><span class="line">    port: <span class="number">8080</span>,</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/flex_24code/flex3.html" data-id="ckg51i5z8002451nd7vhw2b0t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/10/11/25/" data-id="ckg51i5y4000r51nd9jq536id" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
+
     </footer>
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2020/08/21/24/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">flex布局</div>
+    </a>
+  
+</nav>
+
   
 </article>
 
