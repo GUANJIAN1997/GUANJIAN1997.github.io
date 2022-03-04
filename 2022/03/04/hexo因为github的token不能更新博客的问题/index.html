@@ -5,18 +5,19 @@
   
 
   
-  <title>关健的博客</title>
+  <title>hexo因为github的token不能更新博客的问题 | 关健的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="flex 	 		.container { 			width: 200px; 			height: 200px; 			display: flex; 			border: 2px solid black; 			border-radius: 10px; 			flex-direction: row; 			padding: 5px; 			justify-content: flex-sta">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关健的博客">
-<meta property="og:url" content="http://yoursite.com/flex_24code/flex8.html">
+  <meta name="description" content="2021年8月13日, github不再支持用密码提交代码, 要使用token,所以会导致hexo不能正常更新博客了 解决方法：1.登录Github账户，找到Setting - Developer settings - Personal access tokens - Generate new token, Note随便填写，勾选第一项 repo，然后 Generate token；为Hexo项目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo因为github的token不能更新博客的问题">
+<meta property="og:url" content="http://yoursite.com/2022/03/04/hexo%E5%9B%A0%E4%B8%BAgithub%E7%9A%84token%E4%B8%8D%E8%83%BD%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="关健的博客">
-<meta property="og:description" content="flex 	 		.container { 			width: 200px; 			height: 200px; 			display: flex; 			border: 2px solid black; 			border-radius: 10px; 			flex-direction: row; 			padding: 5px; 			justify-content: flex-sta">
+<meta property="og:description" content="2021年8月13日, github不再支持用密码提交代码, 要使用token,所以会导致hexo不能正常更新博客了 解决方法：1.登录Github账户，找到Setting - Developer settings - Personal access tokens - Generate new token, Note随便填写，勾选第一项 repo，然后 Generate token；为Hexo项目">
 <meta property="og:locale" content="zh">
-<meta property="article:published_time" content="2020-08-24T06:50:52.527Z">
-<meta property="article:modified_time" content="2020-08-24T06:50:52.527Z">
+<meta property="article:published_time" content="2022-03-04T08:26:08.000Z">
+<meta property="article:modified_time" content="2022-03-04T08:52:57.397Z">
 <meta property="article:author" content="关健">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="关健的博客" type="application/atom+xml">
@@ -66,62 +67,59 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-hexo因为github的token不能更新博客的问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/flex_24code/flex8.html" class="article-date">
-  <time datetime="2020-08-24T06:50:52.527Z" itemprop="datePublished">2020-08-24</time>
+    <a href="/2022/03/04/hexo%E5%9B%A0%E4%B8%BAgithub%E7%9A%84token%E4%B8%8D%E8%83%BD%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%97%AE%E9%A2%98/" class="article-date">
+  <time datetime="2022-03-04T08:26:08.000Z" itemprop="datePublished">2022-03-04</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/hexo/">hexo</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      hexo因为github的token不能更新博客的问题
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <!DOCTYPE html>
-<html>
-<head>
-	<title>flex</title>
-	<style type="text/css">
-		.container {
-			width: 200px;
-			height: 200px;
-			display: flex;
-			border: 2px solid black;
-			border-radius: 10px;
-			flex-direction: row;
-			padding: 5px;
-			justify-content: flex-start;
-		}
-		.container .item {
-			width: 40px;
-			height: 40px;
-			border: 1px solid #ccc;
-			border-radius: 5px;
-			margin: 5px 5px 5px 5px;
-			text-align: center;
-			line-height: 40px;
-		}
-	</style>
-<meta name="generator" content="Hexo 4.2.0"></head>
-<body>
-	<div class="container">
-		<div class="item">1</div>
-		<div class="item">2</div>
-		<div class="item">3</div>
-	</div>
-</body>
-</html>
+        <p>2021年8月13日, github不再支持用密码提交代码, 要使用token,所以会导致hexo不能正常更新博客了</p>
+<p>解决方法：<br>1.登录Github账户，找到Setting - Developer settings - Personal access tokens - Generate new token, Note随便填写，勾选第一项 repo，然后 Generate token；为Hexo项目生成一个令牌。</p>
+<p>2.进入本机博客的目录修改_config.yml文件</p>
+<p>deploy:<br>  type: git<br>  repo: https://你的<a href="mailto:token@github.com">token@github.com</a>/XXX<br>  branch: master</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/flex_24code/flex8.html" data-id="cl064jb7a001gtdnd7loka0tw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2022/03/04/hexo%E5%9B%A0%E4%B8%BAgithub%E7%9A%84token%E4%B8%8D%E8%83%BD%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%97%AE%E9%A2%98/" data-id="cl0c6it7j00008lndegur9k8e" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+
     </footer>
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2022/02/26/%E8%AE%A1%E6%95%B0%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">枚举法-计数问题</div>
+    </a>
+  
+</nav>
+
   
 </article>
 
