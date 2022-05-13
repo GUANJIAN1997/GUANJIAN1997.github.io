@@ -64,6 +64,60 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-18" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/16/18/" class="article-date">
+  <time datetime="2020-08-16T04:47:10.000Z" itemprop="datePublished">2020-08-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/16/18/">将本地git仓库同时关联到不同的远程仓库</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>代码的托管平台有很多，比如国内的码云和国外的github，如果想要把本地的项目同时上传到两个远程仓库要在本地建立两个文件夹吗？当然不是！git本身是分布式版本控制系统，一个本地库可以关联多个远程仓库。但是要注意，如果同步到多个远程库，需要用不同的名字来区分。<br>这里以码云和github为例（已经关联到码云的本地库再关联github）：<br>首先查看一下关联的状态：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">origin	码云远程仓库的地址 (fetch)</span><br><span class="line">origin	码云远程仓库的地址 (push)</span><br></pre></td></tr></table></figure>
+<p>因为如果只关联一个远程库默认的名字是origin，为了加以区分首先要把这个远程库的名字改成gitee（或者直接删除再关联）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote rename origin gitee</span><br></pre></td></tr></table></figure>
+<p>之后再添加github远程库</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add github 你的github远程库的地址</span><br></pre></td></tr></table></figure>
+<p>这样我们的本地库就同时关联了码云和github，下面再输出一下关联的状态</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gitee	码云远程仓库的地址 (fetch)</span><br><span class="line">gitee	码云远程仓库的地址 (push)</span><br><span class="line">github	github远程仓库的地址 (fetch)</span><br><span class="line">github	github远程仓库的地址 (push)</span><br></pre></td></tr></table></figure>
+<p>如果要推送到码云，使用命令</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push gitee master</span><br></pre></td></tr></table></figure>
+<p>如果要推送到github，使用命令</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push github master</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/16/18/" data-id="cl33wkyoo000ddcnd9yda3qdn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-17" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/07/16/17/" class="article-date">
@@ -94,7 +148,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/16/17/" data-id="cl064jb71000xtdnddp9s4v5b" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/16/17/" data-id="cl33wkyom0008dcndfossdd1w" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
@@ -146,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/03/16/" data-id="cl064jb6r000dtdnd8cpdf3a1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/03/16/" data-id="cl33wkyoi0003dcnd7sozdujr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
@@ -187,7 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/02/15/" data-id="cl064jb6p0009tdndbqr47f5r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/02/15/" data-id="cl33wkyon000adcndfpvgcxzr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
@@ -236,7 +290,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/30/14/" data-id="cl064jb6s000ftdndftvw4sul" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/30/14/" data-id="cl33wkyp00010dcnd3pwe6jvs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%AF%E8%AF%AD/" rel="tag">术语</a></li></ul>
@@ -301,7 +355,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/25/13/" data-id="cl064jb6n0005tdnd3off26ns" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/25/13/" data-id="cl33wkyo80000dcnd59ks00br" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
@@ -342,7 +396,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/19/12/" data-id="cl064jb6c0000tdndf28j9gsg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/19/12/" data-id="cl33wkyof0001dcnd8q0m8cbk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
@@ -391,7 +445,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/05/17/11/" data-id="cl064jb6k0002tdnde4w0gdea" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/05/17/11/" data-id="cl33wkyoj0004dcndbg07d2l0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
@@ -437,7 +491,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/20/10/" data-id="cl064jb6o0007tdnd8boshq4t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/20/10/" data-id="cl33wkyok0005dcndfit10jsy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
@@ -483,56 +537,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/20/9/" data-id="cl064jb7k0027tdnd2t9g3xh0" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-8" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/04/13/8/" class="article-date">
-  <time datetime="2020-04-13T13:50:38.000Z" itemprop="datePublished">2020-04-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/13/8/">JavaScript的作用域链</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>要想了解JavaScript的作用域链就要先知道什么是作用域。</p>
-<h3 id="一-作用域"><a href="#一-作用域" class="headerlink" title="一 作用域"></a>一 作用域</h3><p>作用域是程序源代码中定义这个变量的区域。全局变量拥有全局作用域，在JavaScript代码中的任何地方都是有定义的。然而在函数内声明的变量只在函数体内有定义。它们是局部变量，作用域是局部性的。看例子就很容易理解。<br>例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">global_scope=<span class="string">"global"</span>; <span class="comment">//定义一个全局变量global_scope</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> local_scope=<span class="string">"local"</span>;<span class="comment">//在函数体内定义局部变量local_scope</span></span><br><span class="line">	<span class="built_in">console</span>.log(global_scope);<span class="comment">//输出global_scope</span></span><br><span class="line">	<span class="built_in">console</span>.log(local_scope);<span class="comment">//输出local_scope</span></span><br><span class="line">&#125;</span><br><span class="line">test();</span><br><span class="line"><span class="built_in">console</span>.log(global_scope);<span class="comment">//输出global_scope</span></span><br><span class="line"><span class="built_in">console</span>.log(local_scope);<span class="comment">//输出local_scope</span></span><br></pre></td></tr></table></figure>
-<p>结果：<br>global<br>local<br>global<br>ReferenceError: local_scope is not defined<br>前三个都正常输出，第四个出现未定义错误。<br>因为global_scope是在函数外部定义的全局变量，无论是在函数内还是函数外都可以访问。<br>而local_scope是在函数内定义的局部变量所以只能在函数题内访问。</p>
-<h3 id="二-作用域链"><a href="#二-作用域链" class="headerlink" title="二 作用域链"></a>二 作用域链</h3><p>作用域链就是在当前作用域没找到变量的定义就到当前作用域的上一级找，直到全局作用域为止。这样一层一层的关系就是作用域链。<br>例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">100</span>; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> b=<span class="number">200</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> c=<span class="number">300</span>;</span><br><span class="line">	<span class="built_in">console</span>.log(c);</span><br><span class="line">	<span class="built_in">console</span>.log(b);</span><br><span class="line">	<span class="built_in">console</span>.log(a);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> f2();</span><br><span class="line">&#125;</span><br><span class="line">f1();</span><br></pre></td></tr></table></figure>
-<p>c在f2函数体内定义，直接输出，b和c通过作用域链寻找。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/13/8/" data-id="cl064jb7e001qtdnd9enu1hgy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/04/20/9/" data-id="cl33wkyp9001ndcndb2xydip7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
@@ -588,7 +593,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li></ul>
     </div>
   </div>
 
@@ -599,6 +604,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/05/13/test/">test</a>
+          </li>
         
           <li>
             <a href="/2022/03/04/hexo%E5%9B%A0%E4%B8%BAgithub%E7%9A%84token%E4%B8%8D%E8%83%BD%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%97%AE%E9%A2%98/">hexo因为github的token不能更新博客的问题</a>
@@ -614,10 +623,6 @@
         
           <li>
             <a href="/2020/08/21/24/">flex布局</a>
-          </li>
-        
-          <li>
-            <a href="/2020/08/19/23/">CSS圣杯布局和双飞翼布局</a>
           </li>
         
       </ul>
