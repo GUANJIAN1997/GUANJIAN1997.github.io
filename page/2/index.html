@@ -64,6 +64,48 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-22" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/18/22/" class="article-date">
+  <time datetime="2020-08-18T07:20:23.000Z" itemprop="datePublished">2020-08-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/18/22/">clientWidth和offsetWidth</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="clientWidth"><a href="#clientWidth" class="headerlink" title="clientWidth"></a>clientWidth</h3><p>clientWidth是一个只读的属性，返回元素内部的宽度。clientWidth = 内容宽度（width）+ 内边距（padding）<br>如果有滚动条的话要剪掉滚动条的宽度</p>
+<h3 id="offsetWidth"><a href="#offsetWidth" class="headerlink" title="offsetWidth"></a>offsetWidth</h3><p>offsetWidth也是一个只读属性，返回元素的布局宽度。offsetWidth = 内容宽度（width）+ 内边距（padding）+ 边框（border）<br>例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-id">#test</span> &#123;</span></span><br><span class="line">      width: 200px;</span><br><span class="line">      height: 200px;</span><br><span class="line">      background-color: red;</span><br><span class="line">      border: 10px solid black;</span><br><span class="line">      padding: 10px;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(<span class="built_in">document</span>.getElementById(<span class="string">"test"</span>).clientWidth);</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(<span class="built_in">document</span>.getElementById(<span class="string">"test"</span>).offsetWidth);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这段代码打印出的clientWidth：220，offsetWidth：240<br>盒子模型如下图所示<br><img src="/images/22.1.png" width = "300" height = "300" align=center /></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/18/22/" data-id="cl33wkyor000idcnd307lh5ka" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-21" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/08/17/21/" class="article-date">
@@ -531,47 +573,6 @@
 
 
   
-    <article id="post-12" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/06/19/12/" class="article-date">
-  <time datetime="2020-06-19T05:22:59.000Z" itemprop="datePublished">2020-06-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/19/12/">Vue组件的data为什么必须是函数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>首先先看一个例子：这个例子将Vue实例挂载到root节点，又实例一个全局的组件。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"vue.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"root"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">			Vue.component(<span class="string">"component1"</span>,&#123;</span></span><br><span class="line"><span class="actionscript">				data: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">					<span class="keyword">return</span> &#123;</span></span><br><span class="line">						content:1</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;,</span><br><span class="line"><span class="handlebars"><span class="xml">			template:"<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><span class="template-variable">&#123;&#123;content&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span>"</span></span></span><br><span class="line">			&#125;)</span><br><span class="line"><span class="actionscript">			<span class="keyword">new</span>  Vue(&#123;</span></span><br><span class="line"><span class="actionscript">			    el: <span class="string">'#root'</span>,</span></span><br><span class="line"><span class="handlebars"><span class="xml">			    template: "<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><span class="template-variable">&#123;&#123;demo&#125;&#125;</span><span class="xml"><span class="tag">&lt;<span class="name">component1</span>&gt;</span><span class="tag">&lt;/<span class="name">component1</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>",</span></span></span><br><span class="line">			    data: &#123;</span><br><span class="line">			        demo: 123</span><br><span class="line">			    &#125;</span><br><span class="line">			&#125;)</span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>从这个例子我们可以看出在根组件中可以使用对象绑定数据，在子组件中只能用函数的方式来绑定数据。这是为什么呢？<br>原因就是子组件的数据会被多次调用并且数据还可能被改变，所以每一个子组件的数据不希望是共用的一个，应该是每个子组件的数据都拥有一个独立的数据存储。<br>下面来看这个js的原型链，两个实例都引用同一个对象，其中一个改变的时候，另一个也发生改变。而data是函数的话，每个vue组件的data都因为函数有了自己的作用域，互不干扰。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Component = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">Component.prototype.data = &#123;</span><br><span class="line">    demo: <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> component1 = <span class="keyword">new</span> Component();</span><br><span class="line"><span class="keyword">var</span> component2 = <span class="keyword">new</span> Component();</span><br><span class="line">component1.data.demo = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(component2.data.demo); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/19/12/" data-id="cl33wkyof0001dcnd8q0m8cbk" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -629,6 +630,10 @@
       <ul>
         
           <li>
+            <a href="/2022/07/14/%E6%A0%B8%E6%A1%83%E7%BC%96%E7%A8%8B%EF%BC%886-7%E5%B2%81%EF%BC%89-%E5%BC%95%E6%B5%81%E8%AF%BE3/">核桃编程（6-7岁）-引流课3</a>
+          </li>
+        
+          <li>
             <a href="/2022/07/14/%E6%A0%B8%E6%A1%83%E7%BC%96%E7%A8%8B%EF%BC%886-7%E5%B2%81%EF%BC%89-%E5%BC%95%E6%B5%81%E8%AF%BE2/">核桃编程（6-7岁）-引流课2-</a>
           </li>
         
@@ -642,10 +647,6 @@
         
           <li>
             <a href="/2022/05/13/test/">test</a>
-          </li>
-        
-          <li>
-            <a href="/2022/03/04/hexo%E5%9B%A0%E4%B8%BAgithub%E7%9A%84token%E4%B8%8D%E8%83%BD%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%97%AE%E9%A2%98/">hexo因为github的token不能更新博客的问题</a>
           </li>
         
       </ul>
