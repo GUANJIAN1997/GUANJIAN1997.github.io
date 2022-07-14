@@ -64,6 +64,48 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-17" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/16/17/" class="article-date">
+  <time datetime="2020-07-16T02:41:30.000Z" itemprop="datePublished">2020-07-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/16/17/">JavaScript &amp;&amp; 的活用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先来了解一下“&amp;&amp;”操作符的计算过程：“&amp;&amp;”连接两个表达式，当两侧表达式都为真时，返回True。有一个为假则返回False。<br>实际运行的时候，首先判断左侧的表达式，如果左侧的表达式是False的话，整个式子一定是False，所以不会对右侧的表达式进行判断。<br>掌握“&amp;&amp;”的这个特点就可以用它来替代条件判断语句的写法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a==b)&#123;<span class="built_in">console</span>.log(<span class="number">1</span>)&#125;</span><br></pre></td></tr></table></figure>
+<p>这个if语句可以写成</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(a==b) &amp;&amp; <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/16/17/" data-id="cl33wkyom0008dcndfossdd1w" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-16" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/07/03/16/" class="article-date">
@@ -502,52 +544,6 @@
 
 
   
-    <article id="post-7" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/04/09/7/" class="article-date">
-  <time datetime="2020-04-09T06:53:39.000Z" itemprop="datePublished">2020-04-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/09/7/">JavaScript中的声明提前</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JavaScript语言是从上到下依此执行的，但是JavaScript的函数作用域是指在函数内声明的变量在函数体内始终可见，也就意味着变量在声明之前就已经可用了。<br>JavaScript的这一特性被非正式地称为声明提前（hoisting），即JavaScript函数里声明的所有变量（但不涉及赋值）都被“提前”至函数体的顶部。（这步操作是在JavaScript“预编译”时进行的）<br>下面我们看一个例子：<br>###JavaScript</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scope=<span class="string">"global"</span>; <span class="comment">//定义一个全局变量scope</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">	<span class="keyword">var</span> scope=<span class="string">"local"</span>;<span class="comment">//在函数体内重新定义局部变量scope</span></span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>###输出结果：<br>undefined<br>local<br>我们在我们可能误以为第一个输出是“global”，因为函数还没有执行到var语句声明局部变量的地方。由于函数作用域的特性，局部变量在整个函数体始终是有定义的，也就是说，在函数体内局部变量遮盖了同名全局变量。尽管如此，只有在程序执行到var语句的时候，局部变量才会被真正赋值。所以上述过程等价于：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">scope=<span class="string">"global"</span>; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> scope;<span class="comment">//声明局部变量scope</span></span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">	scope=<span class="string">"local"</span>;<span class="comment">//局部变量赋值</span></span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/09/7/" data-id="cl33wkyp40018dcnd1vjpdv7d" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -605,6 +601,10 @@
       <ul>
         
           <li>
+            <a href="/2022/07/14/%E6%89%A3%E5%8F%AE%E5%B0%8F%E8%AF%BE%E5%A0%82-%E4%B8%80%E8%B5%B7%E5%8E%BB%E9%83%8A%E6%B8%B8/">扣叮小课堂-一起去郊游</a>
+          </li>
+        
+          <li>
             <a href="/2022/07/14/%E6%89%A3%E5%8F%AE%E5%B0%8F%E8%AF%BE%E5%A0%824-%E8%B4%AA%E5%90%83%E9%B8%A1/">扣叮小课堂4-贪吃鸡</a>
           </li>
         
@@ -618,10 +618,6 @@
         
           <li>
             <a href="/2022/07/14/%E6%89%A3%E5%8F%AE%E5%B0%8F%E8%AF%BE%E5%A0%827-%E6%B5%B7%E6%B4%8B%E9%87%8E%E7%94%9F%E5%8A%A8%E7%89%A9%E5%B0%8F%E7%A7%91%E6%99%AE/">扣叮小课堂7-海洋野生动物小科普</a>
-          </li>
-        
-          <li>
-            <a href="/2022/07/14/%E6%89%A3%E5%8F%AE%E5%B0%8F%E8%AF%BE%E5%A0%828-%E6%89%A3%E5%8F%AE%E9%97%AF%E8%BF%B7%E5%AE%AB/">扣叮小课堂8-扣叮闯迷宫</a>
           </li>
         
       </ul>

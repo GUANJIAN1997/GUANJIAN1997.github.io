@@ -64,6 +64,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-hexo因为github的token不能更新博客的问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/03/04/hexo%E5%9B%A0%E4%B8%BAgithub%E7%9A%84token%E4%B8%8D%E8%83%BD%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%97%AE%E9%A2%98/" class="article-date">
+  <time datetime="2022-03-04T08:26:08.000Z" itemprop="datePublished">2022-03-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/hexo/">hexo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/04/hexo%E5%9B%A0%E4%B8%BAgithub%E7%9A%84token%E4%B8%8D%E8%83%BD%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%97%AE%E9%A2%98/">hexo因为github的token不能更新博客的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2021年8月13日, github不再支持用密码提交代码, 要使用token,所以会导致hexo不能正常更新博客了</p>
+<p>解决方法：<br>1.登录Github账户，找到Setting - Developer settings - Personal access tokens - Generate new token, Note随便填写，勾选第一项 repo，然后 Generate token；为Hexo项目生成一个令牌。</p>
+<p>2.进入本机博客的目录修改_config.yml文件</p>
+<p>deploy:<br>  type: git<br>  repo: https://你的<a href="mailto:token@github.com">token@github.com</a>/XXX<br>  branch: master</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2022/03/04/hexo%E5%9B%A0%E4%B8%BAgithub%E7%9A%84token%E4%B8%8D%E8%83%BD%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%97%AE%E9%A2%98/" data-id="cl33wkypa001qdcnd9zx7de2t" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-计数问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2022/02/26/%E8%AE%A1%E6%95%B0%E9%97%AE%E9%A2%98/" class="article-date">
@@ -520,48 +566,6 @@
 
 
   
-    <article id="post-17" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/07/16/17/" class="article-date">
-  <time datetime="2020-07-16T02:41:30.000Z" itemprop="datePublished">2020-07-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/16/17/">JavaScript &amp;&amp; 的活用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>首先来了解一下“&amp;&amp;”操作符的计算过程：“&amp;&amp;”连接两个表达式，当两侧表达式都为真时，返回True。有一个为假则返回False。<br>实际运行的时候，首先判断左侧的表达式，如果左侧的表达式是False的话，整个式子一定是False，所以不会对右侧的表达式进行判断。<br>掌握“&amp;&amp;”的这个特点就可以用它来替代条件判断语句的写法。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a==b)&#123;<span class="built_in">console</span>.log(<span class="number">1</span>)&#125;</span><br></pre></td></tr></table></figure>
-<p>这个if语句可以写成</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(a==b) &amp;&amp; <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/16/17/" data-id="cl33wkyom0008dcndfossdd1w" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -619,6 +623,10 @@
       <ul>
         
           <li>
+            <a href="/2022/07/14/%E6%89%A3%E5%8F%AE%E5%B0%8F%E8%AF%BE%E5%A0%82-%E4%B8%80%E8%B5%B7%E5%8E%BB%E9%83%8A%E6%B8%B8/">扣叮小课堂-一起去郊游</a>
+          </li>
+        
+          <li>
             <a href="/2022/07/14/%E6%89%A3%E5%8F%AE%E5%B0%8F%E8%AF%BE%E5%A0%824-%E8%B4%AA%E5%90%83%E9%B8%A1/">扣叮小课堂4-贪吃鸡</a>
           </li>
         
@@ -632,10 +640,6 @@
         
           <li>
             <a href="/2022/07/14/%E6%89%A3%E5%8F%AE%E5%B0%8F%E8%AF%BE%E5%A0%827-%E6%B5%B7%E6%B4%8B%E9%87%8E%E7%94%9F%E5%8A%A8%E7%89%A9%E5%B0%8F%E7%A7%91%E6%99%AE/">扣叮小课堂7-海洋野生动物小科普</a>
-          </li>
-        
-          <li>
-            <a href="/2022/07/14/%E6%89%A3%E5%8F%AE%E5%B0%8F%E8%AF%BE%E5%A0%828-%E6%89%A3%E5%8F%AE%E9%97%AF%E8%BF%B7%E5%AE%AB/">扣叮小课堂8-扣叮闯迷宫</a>
           </li>
         
       </ul>
