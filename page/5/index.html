@@ -64,6 +64,58 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/01/3/" class="article-date">
+  <time datetime="2020-04-01T14:42:47.000Z" itemprop="datePublished">2020-04-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/01/3/">src和href的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一-引言"><a href="#一-引言" class="headerlink" title="一 引言"></a>一 引言</h2><p>引入链接和css文件的时候会用href属性，引入图片和js文件的时候却用src属性，同样是加载外部文件这两个属性到底有什么区别呢？</p>
+<h2 id="二-概念"><a href="#二-概念" class="headerlink" title="二 概念"></a>二 概念</h2><p>href (Hypertext Reference): 译为超文本引用。href是指向网络资源的所在位置，建立起来和当前文档的链接。</p>
+<blockquote>
+<p>例如:<link href="xxx.css" rel="stylesheet"/>当浏览器解析到这一句话的时候会识别文档为css文件，<strong>会下载且不会中断对当前页面的处理</strong>。  </p>
+</blockquote>
+<p>src(source）: src是指向外部资源的位置并且将指向的资源加载并应用到当前的文档中。</p>
+<blockquote>
+<p>例如:<span><script src="xxx.js"></script></span>当浏览器解析到这一句话的时候会暂停对当前页面的处理，直到将次资源加载，编译完成。所以js文件一般都放在<body>的最后。</p>
+</blockquote>
+<h2 id="三-总结"><a href="#三-总结" class="headerlink" title="三 总结"></a>三 总结</h2><p>href用于建立标签和外部资源之间建立一个关系，src可替代这个元素。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/01/3/" data-id="cl33wkyp7001gdcndenisgxsv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/03/31/2/" class="article-date">
@@ -243,6 +295,10 @@
       <ul>
         
           <li>
+            <a href="/2022/07/14/%E6%89%A3%E5%8F%AE%E5%B0%8F%E8%AF%BE%E5%A0%827-%E6%B5%B7%E6%B4%8B%E9%87%8E%E7%94%9F%E5%8A%A8%E7%89%A9%E5%B0%8F%E7%A7%91%E6%99%AE/">扣叮小课堂7-海洋野生动物小科普</a>
+          </li>
+        
+          <li>
             <a href="/2022/07/14/%E6%89%A3%E5%8F%AE%E5%B0%8F%E8%AF%BE%E5%A0%828-%E6%89%A3%E5%8F%AE%E9%97%AF%E8%BF%B7%E5%AE%AB/">扣叮小课堂8-扣叮闯迷宫</a>
           </li>
         
@@ -256,10 +312,6 @@
         
           <li>
             <a href="/2022/07/14/%E6%89%A3%E5%8F%AE%E5%B0%8F%E8%AF%BE%E5%A0%8212-%E7%A5%9E%E5%A5%87%E7%9A%84%E7%94%BB%E6%9D%BF/">扣叮小课堂12-神奇的画板</a>
-          </li>
-        
-          <li>
-            <a href="/2022/07/14/%E6%89%A3%E5%8F%AE%E5%B0%8F%E8%AF%BE%E5%A0%8211-%E6%89%A3%E5%8F%AE%E9%9F%B3%E4%B9%90%E8%8A%82/">扣叮小课堂11-扣叮音乐节</a>
           </li>
         
       </ul>
