@@ -64,6 +64,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-7" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/09/7/" class="article-date">
+  <time datetime="2020-04-09T06:53:39.000Z" itemprop="datePublished">2020-04-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/09/7/">JavaScript中的声明提前</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript语言是从上到下依此执行的，但是JavaScript的函数作用域是指在函数内声明的变量在函数体内始终可见，也就意味着变量在声明之前就已经可用了。<br>JavaScript的这一特性被非正式地称为声明提前（hoisting），即JavaScript函数里声明的所有变量（但不涉及赋值）都被“提前”至函数体的顶部。（这步操作是在JavaScript“预编译”时进行的）<br>下面我们看一个例子：<br>###JavaScript</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scope=<span class="string">"global"</span>; <span class="comment">//定义一个全局变量scope</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">	<span class="keyword">var</span> scope=<span class="string">"local"</span>;<span class="comment">//在函数体内重新定义局部变量scope</span></span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###输出结果：<br>undefined<br>local<br>我们在我们可能误以为第一个输出是“global”，因为函数还没有执行到var语句声明局部变量的地方。由于函数作用域的特性，局部变量在整个函数体始终是有定义的，也就是说，在函数体内局部变量遮盖了同名全局变量。尽管如此，只有在程序执行到var语句的时候，局部变量才会被真正赋值。所以上述过程等价于：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">scope=<span class="string">"global"</span>; </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> scope;<span class="comment">//声明局部变量scope</span></span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">	scope=<span class="string">"local"</span>;<span class="comment">//局部变量赋值</span></span><br><span class="line">	<span class="built_in">console</span>.log(scope);<span class="comment">//输出scope</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/09/7/" data-id="cl33wkyp40018dcnd1vjpdv7d" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-6" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/04/06/6/" class="article-date">
@@ -544,6 +590,10 @@
       <ul>
         
           <li>
+            <a href="/2022/07/14/%E6%8E%A2%E6%9C%88%E7%BC%96%E7%A8%8B%EF%BC%888-12%EF%BC%89-%E5%BC%95%E6%B5%81%E8%AF%BE1-%E5%88%9D%E9%81%87%E6%8D%A3%E8%9B%8B%E9%AC%BC/">探月编程（8-12）-引流课1-初遇捣蛋鬼</a>
+          </li>
+        
+          <li>
             <a href="/2022/07/14/%E7%8C%BF%E7%BC%96%E7%A8%8B%EF%BC%884-6%EF%BC%89-%E5%BC%95%E6%B5%81%E8%AF%BE3-%E9%A3%9E%E5%A4%A9%E7%83%AD%E6%B0%94%E7%90%83/">猿编程（4-6）-引流课3-飞天热气球</a>
           </li>
         
@@ -557,10 +607,6 @@
         
           <li>
             <a href="/2022/07/14/%E6%A0%B8%E6%A1%83%E7%BC%96%E7%A8%8B%EF%BC%886-7%E5%B2%81%EF%BC%89-%E5%BC%95%E6%B5%81%E8%AF%BE4/">核桃编程（6-7岁）-引流课4-</a>
-          </li>
-        
-          <li>
-            <a href="/2022/07/14/%E6%A0%B8%E6%A1%83%E7%BC%96%E7%A8%8B%EF%BC%886-7%E5%B2%81%EF%BC%89-%E5%BC%95%E6%B5%81%E8%AF%BE3/">核桃编程（6-7岁）-引流课3</a>
           </li>
         
       </ul>
