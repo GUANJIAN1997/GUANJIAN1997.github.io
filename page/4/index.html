@@ -64,6 +64,109 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/03/4/" class="article-date">
+  <time datetime="2020-04-03T09:38:16.000Z" itemprop="datePublished">2020-04-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/03/4/">通过实际例子通俗说明css浮动</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一-引言"><a href="#一-引言" class="headerlink" title="一 引言"></a>一 引言</h2><p>刚学到浮动的时候感觉这功能对于布局来说简直是神器啊，但自己试了几个例子之后变得一头雾水，刚入门前端的小伙伴们是否跟我一样呢，这次就通过几个例子来通俗说说浮动。</p>
+<h2 id="二-结合例子的说明"><a href="#二-结合例子的说明" class="headerlink" title="二 结合例子的说明"></a>二 结合例子的说明</h2><p>首先简单介绍一下CSS的浮动（float）：Float（浮动），会使元素（盒子）向左或向右移动，其周围的元素也会重新排列。</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>none</td>
+<td>默认值。元素不浮动。</td>
+</tr>
+<tr>
+<td>left</td>
+<td>元素向左浮动。</td>
+</tr>
+<tr>
+<td>right</td>
+<td>元素向右浮动。</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>从父元素继承float属性的值</td>
+</tr>
+</tbody></table>
+<h2 id="nbsp"><a href="#nbsp" class="headerlink" title="&nbsp;"></a>&nbsp;</h2><p>首先要知道html的标准流是从上倒下按顺序排列的。div是块元素，如果不加浮动的话一个div应该占一整行，自上而下排列。<br>浮动就是为了打破这个html标准流，让一行能显示多个div元素。下面我们来看一下第一个例子。<br><strong>例1（不加浮动）</strong><br><img src="/images/4.1.png" width = "200" height = "180" alt="例1（不加浮动）" align=center /><br>从上图可看到在不加浮动的时候无论一行内有没有足够的空间div1~div4都是从上到下依次排列的。<br>###HTML代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>float_test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">		<span class="selector-class">.div1</span>&#123;<span class="attribute">width</span>: <span class="number">100px</span>;<span class="attribute">height</span>: <span class="number">100px</span>;<span class="attribute">background-color</span>: red;&#125;</span></span><br><span class="line"><span class="css">		<span class="selector-class">.div2</span>&#123;<span class="attribute">width</span>: <span class="number">200px</span>;<span class="attribute">height</span>: <span class="number">50px</span>;<span class="attribute">background-color</span>: yellow;&#125;</span></span><br><span class="line"><span class="css">		<span class="selector-class">.div3</span>&#123;<span class="attribute">width</span>: <span class="number">100px</span>;<span class="attribute">height</span>: <span class="number">150px</span>;<span class="attribute">background-color</span>: black;&#125;</span></span><br><span class="line"><span class="css">		<span class="selector-class">.div4</span>&#123;<span class="attribute">width</span>: <span class="number">150px</span>;<span class="attribute">height</span>: <span class="number">50px</span>;<span class="attribute">background-color</span>: green;&#125;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div1"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>div1<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div2"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>div2<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div3"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"color: white"</span>&gt;</span>div3<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div4"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>div4<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>下面我们看第二个例子<br><strong>例2（将div2向左浮动）</strong><br><img src="/images/4.2.png" width = "200" height = "180" alt="例2（将div2向左浮动）" align=center /><br>在例2中我们只对div2向左浮动，图中可以看出div3变“短”了。实际上是div2就脱离了标准流，div3自动上移顶替div2的位置，div3被div2挡住了一部分。div4也跟着div3上移，与div1，div3组成新的标准流。div2是非标准流。&nbsp;<br>总结1:如果A元素未被浮动，上一个元素B被浮动，那么A元素就会上移，直到遇到非浮动元素的底部。与非浮动元素组成新的标准流。&nbsp;<br>如果A元素被浮动，A元素的上一个元素未被浮动，那么A元素还会保持原来的垂直位置。<br>###HTML代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>float_test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">		<span class="selector-class">.div1</span>&#123;<span class="attribute">width</span>: <span class="number">100px</span>;<span class="attribute">height</span>: <span class="number">100px</span>;<span class="attribute">background-color</span>: red;&#125;</span></span><br><span class="line"><span class="css">		<span class="selector-class">.div2</span>&#123;<span class="attribute">width</span>: <span class="number">200px</span>;<span class="attribute">height</span>: <span class="number">50px</span>;<span class="attribute">background-color</span>: yellow; <span class="attribute">float</span>: left;&#125;</span></span><br><span class="line"><span class="css">		<span class="selector-class">.div3</span>&#123;<span class="attribute">width</span>: <span class="number">100px</span>;<span class="attribute">height</span>: <span class="number">150px</span>;<span class="attribute">background-color</span>: black;&#125;</span></span><br><span class="line"><span class="css">		<span class="selector-class">.div4</span>&#123;<span class="attribute">width</span>: <span class="number">150px</span>;<span class="attribute">height</span>: <span class="number">50px</span>;<span class="attribute">background-color</span>: green;&#125;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div1"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>div1<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div2"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>div2<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div3"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"color: white"</span>&gt;</span>div3<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div4"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>div4<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>接下来我们看第三个例子<br><strong>例3（将div2，div3向右浮动）</strong><br><img src="/images/4.3.png" width = "300" height = "150" alt="例2（将div2，div3向右浮动）" align=center /><br>根据我们在例2中得出的结论，div2，div3向右边浮动后，div4会上移到div1的下面。上图也印证了这一结论，通过观察div2和div3我们发现它们变成横向排列了，这是为什么呢？因为div3被浮动之后他的上一个元素也是浮动元素，那么他就会横向排在上一个元素的后面。<br>&nbsp;<br>总结2:如果A元素被浮动且A元素上一个元素也被浮动，那么A元素会和上一个元素横向排列，且在上一个元素的后面（远离页面边缘的方向称为后）。<br>###HTML代码</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>float_test<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">		<span class="selector-class">.div1</span>&#123;<span class="attribute">width</span>: <span class="number">100px</span>;<span class="attribute">height</span>: <span class="number">100px</span>;<span class="attribute">background-color</span>: red;&#125;</span></span><br><span class="line"><span class="css">		<span class="selector-class">.div2</span>&#123;<span class="attribute">width</span>: <span class="number">200px</span>;<span class="attribute">height</span>: <span class="number">50px</span>;<span class="attribute">background-color</span>: yellow; <span class="attribute">float</span>: right;&#125;</span></span><br><span class="line"><span class="css">		<span class="selector-class">.div3</span>&#123;<span class="attribute">width</span>: <span class="number">100px</span>;<span class="attribute">height</span>: <span class="number">150px</span>;<span class="attribute">background-color</span>: black; <span class="attribute">float</span>: left;&#125;</span></span><br><span class="line"><span class="css">		<span class="selector-class">.div4</span>&#123;<span class="attribute">width</span>: <span class="number">150px</span>;<span class="attribute">height</span>: <span class="number">50px</span>;<span class="attribute">background-color</span>: green;&#125;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div1"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>div1<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div2"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>div2<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div3"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"color: white"</span>&gt;</span>div3<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div4"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>div4<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="三-总结"><a href="#三-总结" class="headerlink" title="三 总结"></a>三 总结</h2><table>
+<thead>
+<tr>
+<th>A元素</th>
+<th>A的上一个元素B</th>
+<th>A的排列变化</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>不浮动</td>
+<td>不浮动</td>
+<td>按照标准流排列，A与B的底部对齐</td>
+</tr>
+<tr>
+<td>不浮动</td>
+<td>浮动</td>
+<td>向上移动直到遇到非浮动元素，并与非浮动元素的底部对齐组成新的标准流</td>
+</tr>
+<tr>
+<td>浮动</td>
+<td>不浮动</td>
+<td>垂直方向上依旧与非浮动元素的底部对齐</td>
+</tr>
+<tr>
+<td>浮动</td>
+<td>浮动</td>
+<td>与上一个元素B横向排列，在B的后面（远离页面边缘的方向）</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/03/4/" data-id="cl33wkyp20012dcndefrefriy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/" rel="tag">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-3" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/04/01/3/" class="article-date">
@@ -295,6 +398,10 @@
       <ul>
         
           <li>
+            <a href="/2022/07/14/%E7%8C%BF%E7%BC%96%E7%A8%8B%EF%BC%884-6%EF%BC%89-%E5%BC%95%E6%B5%81%E8%AF%BE1-%E8%BD%AC%E5%8A%A8%E5%90%A7%EF%BC%8C%E6%91%A9%E5%A4%A9%E8%BD%AE/">猿编程（4-6）-引流课1-转动吧，摩天轮</a>
+          </li>
+        
+          <li>
             <a href="/2022/07/14/%E6%A0%B8%E6%A1%83%E7%BC%96%E7%A8%8B%EF%BC%886-7%E5%B2%81%EF%BC%89-%E5%BC%95%E6%B5%81%E8%AF%BE4/">核桃编程（6-7岁）-引流课4-</a>
           </li>
         
@@ -308,10 +415,6 @@
         
           <li>
             <a href="/2022/07/14/%E6%A0%B8%E6%A1%83%E7%BC%96%E7%A8%8B1/">核桃编程（6-7岁）-引流课1-南极探险</a>
-          </li>
-        
-          <li>
-            <a href="/2022/05/13/27/">27</a>
           </li>
         
       </ul>
