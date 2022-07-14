@@ -64,6 +64,47 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-12" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/19/12/" class="article-date">
+  <time datetime="2020-06-19T05:22:59.000Z" itemprop="datePublished">2020-06-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/19/12/">Vue组件的data为什么必须是函数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先先看一个例子：这个例子将Vue实例挂载到root节点，又实例一个全局的组件。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"vue.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"root"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">			Vue.component(<span class="string">"component1"</span>,&#123;</span></span><br><span class="line"><span class="actionscript">				data: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">					<span class="keyword">return</span> &#123;</span></span><br><span class="line">						content:1</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;,</span><br><span class="line"><span class="handlebars"><span class="xml">			template:"<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><span class="template-variable">&#123;&#123;content&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span>"</span></span></span><br><span class="line">			&#125;)</span><br><span class="line"><span class="actionscript">			<span class="keyword">new</span>  Vue(&#123;</span></span><br><span class="line"><span class="actionscript">			    el: <span class="string">'#root'</span>,</span></span><br><span class="line"><span class="handlebars"><span class="xml">			    template: "<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><span class="template-variable">&#123;&#123;demo&#125;&#125;</span><span class="xml"><span class="tag">&lt;<span class="name">component1</span>&gt;</span><span class="tag">&lt;/<span class="name">component1</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>",</span></span></span><br><span class="line">			    data: &#123;</span><br><span class="line">			        demo: 123</span><br><span class="line">			    &#125;</span><br><span class="line">			&#125;)</span><br><span class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>从这个例子我们可以看出在根组件中可以使用对象绑定数据，在子组件中只能用函数的方式来绑定数据。这是为什么呢？<br>原因就是子组件的数据会被多次调用并且数据还可能被改变，所以每一个子组件的数据不希望是共用的一个，应该是每个子组件的数据都拥有一个独立的数据存储。<br>下面来看这个js的原型链，两个实例都引用同一个对象，其中一个改变的时候，另一个也发生改变。而data是函数的话，每个vue组件的data都因为函数有了自己的作用域，互不干扰。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Component = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">Component.prototype.data = &#123;</span><br><span class="line">    demo: <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> component1 = <span class="keyword">new</span> Component();</span><br><span class="line"><span class="keyword">var</span> component2 = <span class="keyword">new</span> Component();</span><br><span class="line">component1.data.demo = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(component2.data.demo); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/19/12/" data-id="cl33wkyof0001dcnd8q0m8cbk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vue/" rel="tag">Vue</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-11" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/05/17/11/" class="article-date">
@@ -601,79 +642,6 @@
 
 
   
-    <article id="post-2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/03/31/2/" class="article-date">
-  <time datetime="2020-03-31T14:05:20.000Z" itemprop="datePublished">2020-03-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/web%E5%89%8D%E7%AB%AF/">web前端</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/31/2/">LocalStorage,SessionStorage,Cookie的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一-引言"><a href="#一-引言" class="headerlink" title="一 引言"></a>一 引言</h2><p><a href="https://zh.wikipedia.org/wiki/HTML5" target="_blank" rel="noopener" title="HTML5">HTML5</a>加入了新的web存储的技术LocalStorage，那么LocalStorage,SessionStorage和Cookie到底有什么区别呢？</p>
-<h2 id="二-概念"><a href="#二-概念" class="headerlink" title="二 概念"></a>二 概念</h2><h3 id="LocalStorage和SessionStorage"><a href="#LocalStorage和SessionStorage" class="headerlink" title="LocalStorage和SessionStorage"></a>LocalStorage和SessionStorage</h3><p>LocalStorage和SessionStorage一样都是用来存储客户端临时信息的对象。<br>LocalStorage：解决了cookie存储空间的不足的问题（每条cookie的存储空间为4K）。并且LocalStorage有永久的生命周期。<br>SessionStorage：顾名思义它是一个会话存储对象，用于临时保存同一标签页的数据，在关闭标签页之后将会删除这些数据。</p>
-<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>Cookis直译过来就是“小型文本文件”的意思。<br>在计算机术语中，Cookis是指某些网站为了辨别用户身份而储存在用户本地终端（Client Side）上的数据。</p>
-<h2 id="三-LocalStorage-SessionStorage-Cookie之间的对比"><a href="#三-LocalStorage-SessionStorage-Cookie之间的对比" class="headerlink" title="三 LocalStorage,SessionStorage,Cookie之间的对比"></a>三 LocalStorage,SessionStorage,Cookie之间的对比</h2><table>
-<thead>
-<tr>
-<th align="center">特性</th>
-<th align="center">LocalStorage</th>
-<th align="center">SessionStorage</th>
-<th align="center">Cookie</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">生命周期</td>
-<td align="center">永久，可以手动清除</td>
-<td align="center">仅在当前会话下有效，关闭页面或者浏览器会后被清除</td>
-<td align="center">一般由服务器生成，可设置失效时间。如果在浏览器端生成Cookie，默认是关闭浏览器后失效</td>
-</tr>
-<tr>
-<td align="center">数据大小</td>
-<td align="center">一般为5MB</td>
-<td align="center">一般为5MB</td>
-<td align="center">4K左右</td>
-</tr>
-<tr>
-<td align="center">与服务端连接与否</td>
-<td align="center">仅在浏览器保存，不参与和服务器的通信</td>
-<td align="center">仅在浏览器保存，不参与和服务器的通信</td>
-<td align="center">每次都会携带在HTTP头中，参与和服务器的通信</td>
-</tr>
-</tbody></table>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/31/2/" data-id="cl33wkyop000fdcndgsbc93aj" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -731,6 +699,10 @@
       <ul>
         
           <li>
+            <a href="/2022/07/14/%E6%89%A3%E5%8F%AE%E5%B0%8F%E8%AF%BE%E5%A0%828-%E6%89%A3%E5%8F%AE%E9%97%AF%E8%BF%B7%E5%AE%AB/">扣叮小课堂8-扣叮闯迷宫</a>
+          </li>
+        
+          <li>
             <a href="/2022/07/14/%E6%89%A3%E5%8F%AE%E5%B0%8F%E8%AF%BE%E5%A0%829-%E8%B4%AA%E5%90%83%E9%B8%A1%E9%98%B5%E8%90%A5%E6%96%B0%E7%AF%87/">扣叮小课堂9-贪吃鸡阵营新篇</a>
           </li>
         
@@ -744,10 +716,6 @@
         
           <li>
             <a href="/2022/07/14/%E6%89%A3%E5%8F%AE%E5%B0%8F%E8%AF%BE%E5%A0%8211-%E6%89%A3%E5%8F%AE%E9%9F%B3%E4%B9%90%E8%8A%82/">扣叮小课堂11-扣叮音乐节</a>
-          </li>
-        
-          <li>
-            <a href="/2022/07/14/%E6%8E%A2%E6%9C%88%E7%BC%96%E7%A8%8B%EF%BC%888-12%EF%BC%89-%E5%BC%95%E6%B5%81%E8%AF%BE1-%E5%88%9D%E9%81%87%E6%8D%A3%E8%9B%8B%E9%AC%BC/">探月编程（8-12）-引流课1-初遇捣蛋鬼</a>
           </li>
         
       </ul>
