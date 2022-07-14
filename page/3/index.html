@@ -64,6 +64,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-19" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/16/19/" class="article-date">
+  <time datetime="2020-08-16T11:48:45.000Z" itemprop="datePublished">2020-08-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/16/19/">动态规划问题（最少硬币找零）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>问题<br>有四种面额的硬币1分，2分，5分，6分，求解找N分的零钱，最少要用多少枚硬币</p>
+<p>分析<br>首先先创建一个N+1的列表来存放不同面额硬币组合的最低数量。<br>本题中面额有四种，循环四次，循环第i次的时候只能使用（0～i）的面额。<br>例 N为11</p>
+<p>i=0 （面额为1分）<br>列表：[0,1,2,3,4,5,6,7,8,9,10,11]<br>列表的值表示只用1分面额的时候组成1～11的最少硬币数。</p>
+<p>i=1 （面额为1分，2分）<br>列表：[0,1,1,2,2,3,3,4,4,5,5,6]<br>用新的组合来更新最少硬币数。</p>
+<p>i=2 （面额为1分，2分，5分）<br>列表：[0,1,1,2,2,1,2,2,3,3,2,3]<br>用新的组合来更新最少硬币数。</p>
+<p>i=3 （面额为1分，2分，5分，6分）<br>列表：[0,1,1,2,2,1,1,2,2,3,2,2]<br>用新的组合来更新最少硬币数。<br>得出结果组成11分的硬币最少要2枚硬币</p>
+<p>JavaScript代码实现</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> coins = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">coinChange</span> (<span class="params">coins,N</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> dp = <span class="keyword">new</span> <span class="built_in">Array</span>(N+<span class="number">1</span>).fill(<span class="literal">Infinity</span>);</span><br><span class="line">  dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">  coins.forEach (<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">1</span>; i&lt;=N; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (i &gt;= item) &#123;</span><br><span class="line">        dp[i] = <span class="built_in">Math</span>.min(dp[i], dp[i - item]+<span class="number">1</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> dp[N] === <span class="literal">Infinity</span> ? <span class="string">'impossible'</span> : dp[N]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(coinChange(coins,<span class="number">11</span>))</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/16/19/" data-id="cl33wkyou000odcnd9cfubens" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-18" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/08/16/18/" class="article-date">
@@ -503,52 +550,6 @@
 
 
   
-    <article id="post-9" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/04/20/9/" class="article-date">
-  <time datetime="2020-04-20T07:22:12.000Z" itemprop="datePublished">2020-04-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/20/9/">闭包</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一-闭包的概念"><a href="#一-闭包的概念" class="headerlink" title="一 闭包的概念"></a>一 闭包的概念</h3><p>函数对象可以通过作用域链相互关联起来，函数体内部的变量都可以保存在函数作用域内，这种特性在计算机科学文献中称为“闭包”。书上的概念有些难懂，我的理解闭包就是为了读取其他函数变量的函数。<br>例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> n=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(n);<span class="comment">//ReferenceError: n is not defined</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
-<p>由于n被定义为函数的内部的局部变量，所以在函数的外部不能访问。<br>为了得到函数内部的局部变量我们可以在函数的内部定一个函数。<br>例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> n=<span class="number">1</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(n);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> f2;</span><br><span class="line">&#125;</span><br><span class="line">f1()();<span class="comment">//1</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
-<p>变量n在f2的父作用域，所以f2可以调用n。</p>
-<h3 id="二-闭包的用途"><a href="#二-闭包的用途" class="headerlink" title="二 闭包的用途"></a>二 闭包的用途</h3><p>1.前面提到的可以读取函数内部的变量。<br>2.让这些变量的值始终保持在内存中。<br>例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">counter</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> n=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> n++;&#125;;</span><br><span class="line">&#125;</span><br><span class="line">c=counter();</span><br><span class="line"><span class="built_in">console</span>.log(c());<span class="comment">//0</span></span><br><span class="line"><span class="built_in">console</span>.log(c());<span class="comment">//1</span></span><br><span class="line"><span class="built_in">console</span>.log(c());<span class="comment">//2</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
-<p>counter内部的函数一共运行了三次，每次值都增加一，说明内部的函数不仅能访问外部函数的变量而且还能一直在内存中，不会在内部函数调用之后清除。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/20/9/" data-id="cl33wkyp9001ndcndb2xydip7" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -606,6 +607,10 @@
       <ul>
         
           <li>
+            <a href="/2022/07/14/%E6%89%A3%E5%8F%AE%E5%B0%8F%E8%AF%BE%E5%A0%8212-%E7%A5%9E%E5%A5%87%E7%9A%84%E7%94%BB%E6%9D%BF/">扣叮小课堂12-神奇的画板</a>
+          </li>
+        
+          <li>
             <a href="/2022/07/14/%E6%89%A3%E5%8F%AE%E5%B0%8F%E8%AF%BE%E5%A0%8211-%E6%89%A3%E5%8F%AE%E9%9F%B3%E4%B9%90%E8%8A%82/">扣叮小课堂11-扣叮音乐节</a>
           </li>
         
@@ -619,10 +624,6 @@
         
           <li>
             <a href="/2022/07/14/%E7%8C%BF%E7%BC%96%E7%A8%8B%EF%BC%884-6%EF%BC%89-%E5%BC%95%E6%B5%81%E8%AF%BE2-%E6%84%8F%E6%83%B3%E4%B8%8D%E5%88%B0%E7%9A%84%E7%A4%BC%E7%89%A9/">猿编程（4-6）-引流课2-意想不到的礼物</a>
-          </li>
-        
-          <li>
-            <a href="/2022/07/14/%E7%8C%BF%E7%BC%96%E7%A8%8B%EF%BC%884-6%EF%BC%89-%E5%BC%95%E6%B5%81%E8%AF%BE1-%E8%BD%AC%E5%8A%A8%E5%90%A7%EF%BC%8C%E6%91%A9%E5%A4%A9%E8%BD%AE/">猿编程（4-6）-引流课1-转动吧，摩天轮</a>
           </li>
         
       </ul>
