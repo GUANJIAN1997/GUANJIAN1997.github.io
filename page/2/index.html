@@ -64,6 +64,72 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-21" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/17/21/" class="article-date">
+  <time datetime="2020-08-17T12:45:33.000Z" itemprop="datePublished">2020-08-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/17/21/">Promise</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Promise是什么？"><a href="#Promise是什么？" class="headerlink" title="Promise是什么？"></a>Promise是什么？</h2><p>Promise是ES6中加入的一个新的对象。它代表了一个异步操作的最终完成或者失败。</p>
+<h2 id="Promise解决什么问题？"><a href="#Promise解决什么问题？" class="headerlink" title="Promise解决什么问题？"></a>Promise解决什么问题？</h2><p>首先介绍一下回调函数<br>在调用像是setTimeout函数时我们传递了一个函数进去，这个函数并没有立即被调用，而是在一定时间后被调用，这种函数被称为回调函数。<br>如果我们在异步操作中加入同步的行为，比如打印四句话，每句话都在前一句的基础上延迟两秒输出。代码如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"first"</span>);</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"second"</span>);</span><br><span class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"third"</span>);</span><br><span class="line">            setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(<span class="string">"fourth"</span>);</span><br><span class="line">            &#125;,<span class="number">2000</span>);</span><br><span class="line">        &#125;,<span class="number">2000</span>);</span><br><span class="line">    &#125;,<span class="number">2000</span>);</span><br><span class="line">&#125;,<span class="number">2000</span>);</span><br></pre></td></tr></table></figure>
+<p>因为想要在前面的异步操作后执行接下来的动作只能写在回调函数里。这样就会有很多嵌套，看起来很复杂。Promise就是来解决这个问题的。</p>
+<h2 id="Promise用法"><a href="#Promise用法" class="headerlink" title="Promise用法"></a>Promise用法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">    <span class="comment">//dosomething</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>首先创建一个Promise对象，该对象的构造函数中接收一个回调函数，回调函数中可以接收两个参数，resolve和reject。注意，这个回调函数是在Promise创建后就会调用。它实际上就是异步操作的第一步。第二步通过Promise对象的then方法实现。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> pm = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">    resolve();</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"go on"</span>);</span><br><span class="line">pm.then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"异步完成"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>不过要注意的是，then方法的回调函数不是说只要then方法一调用它就会调用，而是在Promise的回调函数中通过调用resolve触发的。<br>reject是出现错误时调用的方法。它触发的不是then中的回调函数，而是catch中的回调函数。<br>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> err = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">let</span> pm = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!err)&#123;</span><br><span class="line">        resolve(<span class="string">"this is data"</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        reject(<span class="string">"fail"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"go on"</span>);</span><br><span class="line">pm.then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"异步完成"</span>,data);</span><br><span class="line">&#125;);</span><br><span class="line">pm.catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"出现错误"</span>,err);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>下面尝试将setTimeout函数外包裹Promise对象实现每隔两秒打印一句话</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> timeout = <span class="function"><span class="keyword">function</span> (<span class="params">time</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve,reject</span>) </span>&#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">            resolve();</span><br><span class="line">        &#125;,time);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">timeout(<span class="number">2000</span>).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"First"</span>);</span><br><span class="line">    <span class="keyword">return</span> timeout(<span class="number">2000</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Second"</span>);</span><br><span class="line">    <span class="keyword">return</span> timeout(<span class="number">2000</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Third"</span>);</span><br><span class="line">    <span class="keyword">return</span> timeout(<span class="number">2000</span>);</span><br><span class="line">&#125;).then(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"fourth"</span>);</span><br><span class="line">    <span class="keyword">return</span> timeout(<span class="number">2000</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/17/21/" data-id="cl33wkyov000qdcnd8tca6rd4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-20" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/08/17/20/" class="article-date">
@@ -506,60 +572,11 @@
 
 
   
-    <article id="post-11" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/05/17/11/" class="article-date">
-  <time datetime="2020-05-17T14:40:56.000Z" itemprop="datePublished">2020-05-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/17/11/">JavaScript的let和const</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>ES6新增加了两个重要的JavaScript关键字:let和const。<br>let声明的变量只在let命令所在的代码块内有效。<br>const声明一个只读的常量，一旦声明，常量的值就不能改变。<br>在ES6之前，JavaScript只有两种作用域：全局变量与函数内的局部变量。</p>
-<h3 id="JavaScript块级作用域"><a href="#JavaScript块级作用域" class="headerlink" title="JavaScript块级作用域"></a>JavaScript块级作用域</h3><p>使用var关键字声明的变量不具备块级别作用域的特性，它在{}外依然能被访问到。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="keyword">var</span> x=<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//这里可以打印出x=1</span></span><br></pre></td></tr></table></figure>
-<p>ES6可以使用let关键字来实现块级作用域。<br>let声明的变量只在let命令所在的代码块{}内有效，在{}之外不能访问。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="keyword">let</span> x=<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//这里不可以打印出x=1</span></span><br></pre></td></tr></table></figure>
-<p>注意：使用var关键字声明的全局作用域变量属于window对象，使用let关键字声明的全局作用域变量不属于window对象</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x=<span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> y=<span class="number">1</span></span><br><span class="line"><span class="comment">//可以使用window.x访问变量</span></span><br><span class="line"><span class="comment">//不可以使用window.y访问变量</span></span><br></pre></td></tr></table></figure>
-<h3 id="const关键字"><a href="#const关键字" class="headerlink" title="const关键字"></a>const关键字</h3><p>const用于声明一个或多个常量，声明时必须进行初始化，且初始化后值不可再修改</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> PI=<span class="number">3.141592653589793</span>;</span><br><span class="line">PI=<span class="number">3.14</span>;      <span class="comment">// 报错</span></span><br><span class="line">PI=PI+<span class="number">10</span>;   <span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
-<p>const定义常量与使用let定义的变量相似：<br>二者都是块级作用域，都不能和它所在作用域内的其他变量或函数拥有相同的名称</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x=<span class="number">10</span>;</span><br><span class="line"><span class="comment">// 这里输出x为10</span></span><br><span class="line">&#123; </span><br><span class="line">    <span class="keyword">const</span> x=<span class="number">2</span>;</span><br><span class="line">    <span class="comment">// 这里输出 x 为 2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 这里输出 x 为 10</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/05/17/11/" data-id="cl33wkyoj0004dcndbg07d2l0" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -612,6 +629,10 @@
       <ul>
         
           <li>
+            <a href="/2022/07/14/%E6%A0%B8%E6%A1%83%E7%BC%96%E7%A8%8B%EF%BC%886-7%E5%B2%81%EF%BC%89-%E5%BC%95%E6%B5%81%E8%AF%BE2/">核桃编程（6-7岁）-引流课2-</a>
+          </li>
+        
+          <li>
             <a href="/2022/07/14/%E6%A0%B8%E6%A1%83%E7%BC%96%E7%A8%8B1/">核桃编程（6-7岁）-引流课1-南极探险</a>
           </li>
         
@@ -625,10 +646,6 @@
         
           <li>
             <a href="/2022/03/04/hexo%E5%9B%A0%E4%B8%BAgithub%E7%9A%84token%E4%B8%8D%E8%83%BD%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%97%AE%E9%A2%98/">hexo因为github的token不能更新博客的问题</a>
-          </li>
-        
-          <li>
-            <a href="/2022/02/26/%E8%AE%A1%E6%95%B0%E9%97%AE%E9%A2%98/">枚举法-计数问题</a>
           </li>
         
       </ul>
